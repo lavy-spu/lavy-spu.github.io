@@ -1,0 +1,571 @@
+/* Imports Fonts */
+@font-face {
+    font-family: "Minecraftia-Regular";
+    src: url(./Fonts/Minecraftia-Regular.ttf);
+}
+
+@font-face {
+    font-family: "PressStart2P-Regular";
+    src: url(./Fonts/PressStart2P-Regular.ttf);
+}
+
+@font-face {
+    font-family: "Lexend";
+    src: url(./Fonts/Lexend.ttf);
+}
+
+@font-face {
+    font-family: "DotGothic";
+    src: url(./Fonts/DotGothic16-Regular.ttf);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Typing effect with blinking cursor */
+.typing-effect {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 0.15em solid #00FFD1; /* Cursor color */
+    animation: blink-caret 0.75s step-end infinite;
+}
+
+#typing-text {
+    margin: 0; 
+    padding: 0; 
+    display: inline-block; 
+}
+
+#pfThumbnail {
+    display: block;
+    padding: 0;
+    margin-bottom: 60%;
+}
+
+/* Blinking caret animation */
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: #00FFD1; }
+}
+
+/* Blinking cursor */
+.blinking-cursor {
+    border-right: 0.15em solid #00FFD1; /* Cursor color */
+    animation: blink-caret 0.75s step-end infinite;
+    display: inline-block;
+}
+
+/* Body and General Settings */
+body {
+    font-family: "PressStart2P-Regular", sans-serif;
+    background-color: #f0f6f0;
+    color: #222323;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-image: radial-gradient(#222323 1px, transparent 1px);
+    background-size: 20px 20px;
+    background-position: 0 0;
+    animation: moveBackground 100s linear infinite;
+}
+
+@keyframes moveBackground {
+    0% { background-position: 0 0; }
+    100% { background-position: 1000px 1000px; }
+}
+
+p {
+    font-family: "Lexend", sans-serif;
+    font-size: 1.2em;
+}
+
+h1 {
+    font-size: 2em;
+    margin: 0;
+}
+
+/* Main Layout */
+main {
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* Header Styling */
+header {
+    background-color: #222323;
+    padding: 20px 0;
+    font-family: "Minecraftia-Regular", sans-serif;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Logo */
+.logo h1 {
+    color: #f0f6f0;
+    font-size: 1.5em;
+    font-family: "PressStart2P-Regular", sans-serif;
+    margin: 0;
+}
+
+/* Navigation Links */
+.menu-list ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-list a {
+    text-decoration: none;
+    color: #f0f6f0;
+    font-size: 1em;
+}
+
+.menu-list a:hover {
+    color: #00FFD1;
+}
+
+/* Social Media Icons */
+.icons {
+    display: flex;
+    gap: 15px;
+}
+
+.icons a img {
+    width: 24px;
+    height: 24px;
+}
+
+#email-icon {
+    background-image: url(./Icons/email-close.png);
+    width: 40px;
+    height: 30px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 85%;
+}
+
+
+
+#email-icon:hover {
+    background-image: url(./Icons/email-open.png);
+    width: 40px;
+    height: 30px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 85%;
+}
+
+/* Main Content Padding for Header */
+.main-section {
+    padding-top: 80px; 
+    margin: 0 auto;
+    width: 80%;
+}
+
+/* Specific Sections */
+#front-page {
+    margin-top: 40px;
+}
+
+#home {
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    padding: 20px;
+    margin-top: 60px;
+}
+
+#about, #projects {
+    background-color: #f0f6f0;
+    padding: 40px;
+}
+
+#about .about-me, #projects .project {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* About Me Section */
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px; /* Space between the description and the portrait */
+}
+
+.about-description {
+    flex: 1;
+    text-align: justify;
+}
+
+.about-portrait {
+    position: relative;
+    width: 300px; 
+}
+
+#pfPortrait {
+    width: 92%; 
+    height: 100%;
+    display: block;
+    margin: 5%; /* Center the image within the border */
+    transform: translate(-1px, 0px); 
+}
+
+#pfBorder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; 
+    pointer-events: none; 
+}
+
+/****** Experience Section ******/
+.resume-button{
+    font-family: "PressStart2P-Regular", sans-serif;
+    background-color: #f0f6f0;
+    border: 2px solid #222323;
+    padding: 10px 20px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+.resume-button:hover {
+    background-color: #222323;
+    color: #f0f6f0;
+}
+
+/******** Styling for the experience section *********/
+.experience-section {
+    padding: 60px 20px;
+    background-color: #f0f6f0; 
+    color: #222323; 
+    font-family: 'PressStart2P-Regular', sans-serif;
+}
+
+/* styling for the job title */
+.experience-section #exp-title.job-title {
+    font-family: "Minecraftia-Regular", sans-serif;
+    font-size: 1.2rem; 
+    font-weight: bold;
+    color: #222323;
+}
+
+/* styling for the company name */
+.experience-section #exp-company.company-name {
+    font-family: "Lexend", sans-serif; 
+    font-size: 1.5rem; 
+    font-weight: bold;
+    color: #222323;
+}
+
+/* Header Styling */
+.experience-section h1 {
+    font-weight: 600;
+    color: #222323; 
+    margin-bottom: 20px;
+}
+/* Container Flexbox */
+.experience-container {
+    display: flex;
+    gap: 20px;
+}
+
+/* Sidebar Styling */
+.experience-sidebar {
+    flex: 0 0 30%; /* Fixed width for sidebar */
+    border-right: 2px solid #333; /* Divider line */
+    padding: 10px 0;
+}
+
+.experience-sidebar .sidebar-item {
+    padding: 15px 20px;
+    font-family: "PressStart2p-Regular",sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    color: #222323; 
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.experience-sidebar .sidebar-item:hover,
+.experience-sidebar .sidebar-item.active {
+    background-color: #333; 
+    color: #fff; 
+}
+
+/* Main Details Styling */
+.experience-details {
+    flex: 1; 
+    padding: 20px;
+}
+
+.experience-details h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #222323;
+}
+
+.experience-details p {
+    margin: 0;
+    font-size: 1rem;
+    color: #b0bec5; /* Gray text to stay distinct from other info */
+}
+
+.experience-details ul {
+    list-style: disc;
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+/* Styling for the job title */
+#exp-title.job-title {
+    font-family: "Minecraftia-Regular", sans-serif;
+    font-size: 1.2rem; 
+    font-weight: bold;
+    color: #222323;
+}
+
+/* Styling for the company name */
+#exp-company.company-name {
+    font-family: "Lexend", sans-serif;
+    font-size: 1.5rem; 
+    font-weight: bold;
+    color: #222323;
+}
+
+/* Styling for the experience details list items */
+.experience-details ul li {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    font-family: 'Lexend', sans-serif;
+}
+
+/* CSS for modal */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Container for the projects */
+#projectsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center the project cards */
+    gap: 20px; /* Space between the project cards */
+    padding: 20px; 
+}
+
+/* Project Card */
+.project {
+    background-color: #f0f6f0;
+    border: 4px solid #222323;
+    padding: 20px;
+    width: 300px; /* Fixed width for each project card */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    transition: transform 0.3s, box-shadow 0.3s; 
+}
+
+/* Hover effect for project cards */
+.project:hover {
+    transform: translateY(-10px); /* Move the card up slightly */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow effect */
+}
+
+/* The project images */
+.project img {
+    width: 100%; 
+    height: auto; 
+    max-width: 100%; /* Make sure it doesn't exceed the container width */
+    display: block; /* Make sure it takes up the full width of the container */
+    margin: 0 auto; /* Center the image */
+}
+
+/* Footer */
+footer {
+    background-color: #222323;
+    color: #f0f6f0;
+    padding: 10px;
+    font-size: 0.8em;
+    font-family: "PressStart2P-Regular", sans-serif;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Button Styling */
+.contact-button {
+    font-family: "PressStart2P-Regular", sans-serif;
+    background-color: #f0f6f0;
+    border: 2px solid #222323;
+    padding: 10px 20px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.contact-button:hover {
+    background-color: #222323;
+    color: #f0f6f0;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .menu-list ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .icons {
+        margin-top: 10px;
+    }
+    .experience-container {
+        flex-direction: column;
+    }
+
+    .experience-sidebar {
+        flex: 1;
+        border-right: none;
+        border-bottom: 2px solid #333;
+    }
+}
+
+/* Project Image Carousel */
+#modalPage {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,.65);
+}
+  
+.carousel {
+    max-width: 75%;
+    position: relative;
+    top: 5%;
+    margin: 0 auto;
+    padding: 0 .5rem 1rem .5rem;
+    background-color: white;
+}
+  
+#imgList img {
+    display: block;
+    margin: 1rem auto 1rem auto;
+    max-height: 95%;
+    max-width: 95%;
+}
+  
+#prev, #next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 1.6rem;
+    color: red;
+    font-weight: bold;
+    font-size: 4rem;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+  
+#next {
+    right: 1%;
+    border-radius: 3px 0 0 3px;
+}
+    
+#prev {
+    left: 1%;
+    border-radius: 0 3px 3px 0;
+}
+
+#prev:hover, #next:hover {
+    background-color: black;
+}
+  
+#XOut {
+    margin-top: .25rem;
+    padding: 0;
+    color: red;
+    text-align: right;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+  
+#XOut:hover, #Xout:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Footer */
+footer {
+    background-color: transparent;
+    color: #222323;
+    padding: 10px;
+    font-size: 0.8em;
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+}
