@@ -1,8 +1,7 @@
 {
     "About": {
-        "Thumbnail": "vy-portrait.webp",
-        
-        "AboutText": "I am a Computer Science student pursuing my undergraduate degree at <a href='https://spu.edu' target='_blank'>Seattle Pacific University</a>. I am dedicated to expanding my knowledge and skills in various areas of computer science, with a particular focus on C++ programming. Beyond the classroom, I actively engage in extracurricular activities related to computer science, including hackathons, coding competitions, and open-source contributions. I believe in the importance of continuous learning and seek out opportunities to explore new technologies and methodologies.",
+        "Thumbnail": "vy-portrait.gif",
+        "AboutText": "I am a Computer Science student at <a href='https://spu.edu' target='_blank'>Seattle Pacific University</a>. I am dedicated to expanding my knowledge and skills in various areas of computer science, with a particular focus on C++ programming. Beyond the classroom, I actively engage in extracurricular activities related to computer science, including hackathons, coding competitions, and open-source contributions. I believe in the importance of continuous learning and seek out opportunities to explore new technologies and methodologies.",
         "Location": "Seattle, WA"
     },
     "Contact": {
