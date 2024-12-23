@@ -14,11 +14,6 @@
     src: url(./Fonts/Lexend.ttf);
 }
 
-@font-face {
-    font-family: "DotGothic";
-    src: url(./Fonts/DotGothic16-Regular.ttf);
-}
-
 html {
     scroll-behavior: smooth;
 }
@@ -159,8 +154,6 @@ header {
     background-position: center;
     background-size: 85%;
 }
-
-
 
 #email-icon:hover {
     background-image: url(./Icons/email-open.png);
@@ -360,7 +353,9 @@ header {
     font-size: 1rem;
     font-family: 'Lexend', sans-serif;
 }
-
+#exp-detail-list {
+    text-align: left;
+}
 /* CSS for modal */
 .modal {
     display: none; /* Hidden by default */
