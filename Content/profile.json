@@ -67,6 +67,13 @@
             "GitHubRepo": "https://github.com/TSmedes/task-manager",
             "MainImage": "task-manager-demo.png",
             "DetailImages": []
+        },
+        "Project4": {
+            "Title": "WhatColor",
+            "Desc": "An Android application that detect the color of an object when user uploads a picture from their camera roll.<br><br>Check out the Github Repo below for more details.<br><br>&#8675",
+            "GitHubRepo": "https://github.com/What-Color-SPU/What-Color",
+            "MainImage": "whatcolor-text-logo.png",
+            "DetailImages": []
+        }
     }
-}
 }
