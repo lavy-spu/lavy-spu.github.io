@@ -35,8 +35,9 @@ html {
 
 #pfThumbnail {
     display: block;
-    padding: 0;
-    margin-bottom: 60%;
+    margin: 0 auto 30px auto;
+    width: 300px;
+    height: auto;
 }
 
 /* Blinking caret animation */
