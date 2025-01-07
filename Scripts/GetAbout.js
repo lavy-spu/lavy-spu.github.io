@@ -17,11 +17,13 @@ function updateAboutSection(aboutData) {
     // Ensure the elements exist before setting their properties
     const thumbnailElement = document.querySelector("#pfThumbnail");
     const aboutTextElement = document.querySelector("#pfAboutText");
+    const languagesElement = document.querySelector("#pfLanguages");
     const locationElement = document.querySelector("#pfLocation");
 
-    if (thumbnailElement && aboutTextElement && locationElement) {
+    if (thumbnailElement && aboutTextElement && languagesElement && locationElement) {
         thumbnailElement.src = "Content/".concat(aboutData.Thumbnail);
         aboutTextElement.innerHTML = aboutData.AboutText; // Use innerHTML to insert HTML content
+        languagesElement.innerHTML = aboutData.Languages.join(", ");
         locationElement.innerText = aboutData.Location;
     } else {
         console.error("One or more about section elements are missing in the DOM");
