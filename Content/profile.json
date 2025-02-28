@@ -5,18 +5,18 @@
         "Languages": [
             "C++",
             "Python",
-            "Java",
             "JavaScript",
             "HTML",
             "CSS",
-            "SQL"
+            "SQL",
+            "React Native"
         ],
         "Location": "Seattle, WA"
     },
     "Contact": {
         "LinkedIn": "https://www.linkedin.com/in/vy-la/",
         "GitHub": "https://github.com/lavy-spu",
-        "Email": "lav@spu.edu"
+        "Email": "vyla.main@gmail.com"
     },
     "Experience": {
         "Companies": [
@@ -40,7 +40,7 @@
                     "Led accessibility initiatives, introducing simplified navigation bars and intuitive structure, improving website usability by 10%",
                     "Provided support for software and media production projects."
                 ],
-                "Resume": "vy-resume.pdf"
+                "Resume": "VyLa_SWE_Resume_Feb_2025.pdf"
             },
             {
                 "Name": "Community Involvement",
