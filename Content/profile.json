@@ -1,7 +1,7 @@
 {
     "About": {
         "Thumbnail": "vy-card.gif",
-        "AboutText": "I am a Computer Science student at <a href='https://spu.edu' target='_blank'>Seattle Pacific University</a>. I am dedicated to expanding my knowledge and skills in various areas of computer science, with a particular focus on Web Design and Game Design. Beyond the classroom, I actively engage in extracurricular activities related to computer science, including hackathons, coding competitions, and open-source contributions. I believe in the importance of continuous learning and seek out opportunities to explore new technologies and methodologies.",
+        "AboutText": "I'm studying Computer Science @ <a href='https://spu.edu' target='_blank'>Seattle Pacific University</a>. <br></br> I like to design things that are simple and intuitive. I have a passion for creating user-friendly applications and websites that enhance the user experience. My goal is to leverage my skills in software development to build innovative solutions that make a difference.",
         "Languages": [
             "C++",
             "Python",
@@ -57,32 +57,40 @@
     },
     "Projects": {
         "Project1": {
+            "Title": "WhatColor",
+            "Desc": "An Android application that detect the color of an object when user uploads a picture from their camera roll.<br><br>&#8675",
+            "GitHubRepo": "https://github.com/What-Color-SPU/What-Color",
+            "MainImage": "whatcolor-text-logo.png",
+            "DetailImages": []
+        },
+        "Project2":{
+            "Title": "Van Lang Vietnamese Language School Website",
+            "Desc": "Designed the school website using WordPress and ultilzied plugins for flexible customization.<br><br>&#8675",
+            "Webpage": "https://beta.vanlangseattle.org/en/",
+            "MainImage": "vanlang.png",
+            "DetailImages": ""
+        },
+        "Project3": {
             "Title": "HTTP Library",
-            "Desc": "Front end library that accepts HTTP requests from an HTML form.<br><br>Check out the Github Repo below for more details.<br><br>&#8675",
+            "Desc": "Front end library that accepts HTTP requests from an HTML form.<br><br>&#8675",
             "GitHubRepo": "https://github.com/TSmedes/HTTP-library",
             "MainImage": "HTTP-Library-front.png",
             "DetailImages": []
         },
-        "Project2": {
+        "Project4": {
             "Title": "Web Crawler",
-            "Desc": "A web crawler application using Python to creates a web-link graphs and finds the Closeness Centrality for each node.<br><br>Check out the Github Repo below for more details.<br><br>&#8675",
+            "Desc": "A web crawler application using Python to creates a web-link graphs and finds the Closeness Centrality for each node.<br><br>&#8675",
             "GitHubRepo": "https://github.com/csc3430-winter2024/web-crawler-term-and-graph-10",
             "MainImage": "Web-Crawler.png",
             "DetailImages": []
         },
-        "Project3": {
+        "Project5": {
             "Title": "Task Manager",
-            "Desc": "A full stack web application that manages tasks from a database. Featuring Add, Delete, and Complete task functionalities.<br><br>Check out the Github Repo below for more details.<br><br>&#8675",
+            "Desc": "A full stack web application that manages tasks from a database. Featuring Add, Delete, and Complete task functionalities.<br><br>&#8675",
             "GitHubRepo": "https://github.com/TSmedes/task-manager",
             "MainImage": "task-manager-demo.png",
             "DetailImages": []
-        },
-        "Project4": {
-            "Title": "WhatColor",
-            "Desc": "An Android application that detect the color of an object when user uploads a picture from their camera roll.<br><br>Check out the Github Repo below for more details.<br><br>&#8675",
-            "GitHubRepo": "https://github.com/What-Color-SPU/What-Color",
-            "MainImage": "whatcolor-text-logo.png",
-            "DetailImages": []
         }
+        
     }
 }

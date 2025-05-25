@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experience - Vy La</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="#home"><h1>Vy La</h1></a>
+            </div>
+            <nav class="menu-list">
+                <ul>
+                    <a href="index.html#about"><li>About</li></a>
+                    <a href="experience.html"><li>Experience</li></a>
+                    <a href="projects.html"><li>Projects</li></a>
+                </ul>
+            </nav>
+            <div class="icons">
+                <a id="email-icon" href="mailto:lav@spu.edu"></a>
+                <a href="https://github.com/lavy-spu" target="_blank"><img src="./Icons/github.png" alt="GitHub"></a>
+                <a href="https://www.linkedin.com/in/vy-la/" target="_blank"><img src="./Icons/linkedin.png" alt="LinkedIn"></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Experience section -->
+    <section id="experience" class="experience-section">
+        <h1>Experience</h1>
+        <div class="experience-container">
+            <aside class="experience-sidebar" id="company-list">
+                <!-- Companies will be dynamically populated -->
+            </aside>
+            <div class="experience-details">
+                <h2 id="exp-title" class="job-title"></h2>
+                <p id="exp-company" class="company-name"></p>
+                <p id="exp-date"></p>
+                <ul id="exp-detail-list"></ul>
+            </div>
+        </div>
+        <button id="pfResume" class="resume-button">Open Resume</button>
+    </section>
+
+    <footer>
+        <p>Built and designed by Vy La.<br>All rights reserved. ©</p>
+    </footer>
+
+    <script type="module" src="./Scripts/GetExperience.js"></script>
+</body>
+</html>

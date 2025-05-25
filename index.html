@@ -10,18 +10,17 @@
     <header>
         <div class="container">
             <div class="logo">
-                <h1>Vy La</h1>
+                <a href="#home"><h1>Vy La</h1></a>
             </div>
             <nav class="menu-list">
                 <ul>
-                    <a href="#home"><li>Home</li></a>
                     <a href="#about"><li>About</li></a>
-                    <a href="#experience"><li>Experience</li></a>
-                    <a href="#projects"><li>Projects</li></a>
+                    <a href="experience.html"><li>Experience</li></a>
+                    <a href="projects.html"><li>Projects</li></a>
                 </ul>
             </nav>
             <div class="icons">
-                <a id="email-icon" href="mailto:lav@spu.edu"></a>
+                <a id="email-icon" href="mailto:vyla.main@gmail.com"></a>
                 <a href="https://github.com/lavy-spu" target="_blank"><img src="./Icons/github.png" alt="GitHub"></a>
                 <a href="https://www.linkedin.com/in/vy-la/" target="_blank"><img src="./Icons/linkedin.png" alt="LinkedIn"></a>
             </div>
@@ -36,9 +35,9 @@
             </a>
             </div>
         <div class="home-container">
-        <h1 id="typing-text" class="typing-effect">Hi, it's Vy.</h1>
-         <h2>Welcome to my personal portfolio!</h2>
-         <p>Let's get to know me</p>
+        <h1 id="typing-text" class="typing-effect">Hi, it's Vy!</h1>
+        <h3>I'm a UI/UX Designer based in Seattle, WA.</h3>
+        <h4>Let's get to know me :D</h4>
             <!-- Navigate down to About section -->
             <a href="#about"><img id="down-arrow" src="./Icons/menu-down.png" alt="Menu Down Arrow"></a>
         </div>
@@ -61,55 +60,11 @@
         </div>
     </section>
 
-    <section id="experience" class="experience-section">
-        <h1>Experience</h1>
-        <div class="experience-container">
-            <!-- Sidebar Navigation -->
-            <aside class="experience-sidebar" id="company-list">
-                <!-- Companies will be dynamically populated -->
-            </aside>
-    
-            <!-- Main Experience Details -->
-            <div class="experience-details">
-                <h2 id="exp-title" class="job-title"></h2>
-                <p id="exp-company" class="company-name"></p>
-                <p id="exp-date"></p>
-                <ul id="exp-detail-list"></ul>
-            </div>
-        </div>
-        <button id="pfResume" class="resume-button">Open Resume</button>
-    </section>
-    
-        
-    <section id="projects" class="main-section"></section>
-        <h1>Projects</h1>
-        <div id="projectsContainer"></div>
-        <!-- Image Carousel -->
-        <div id="modalPage">
-            <div class="carousel">
-                <p id="XOut">&times;</p>
-                <div id="imgList"></div>
-                <a id="prev">&#10094;</a>
-                <a id="next">&#10095;</a>
-            </div>
-        </div>
-    </section>
-
-     <!-- The Modal -->
-     <div id="resumeModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <iframe id="resumeFrame" src="" width="100%" height="500px"></iframe>
-        </div>
-    </div>
-
     <footer>
-        <p>Built and designed by Vy La.<br>All rights reserved. ©</p>
+        <p>Built and designed by Vy La.<br>Copyright &copy; 2025</p>
     </footer>
 
     <script type="module" src="./Scripts/animation.js"></script>
     <script type="module" src="./Scripts/GetAbout.js"></script>
-    <script type="module" src="./Scripts/GetExperience.js"></script>
-    <script type="module" src="./Scripts/GetProjects.js"></script>
 </body>
 </html>

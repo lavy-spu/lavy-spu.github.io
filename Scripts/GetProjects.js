@@ -47,13 +47,16 @@ function updateHTML(configData) {
 
             const projectRepo = document.createElement("a");
             projectRepo.id = `pfProject${index + 1}Repo`;
-            projectRepo.href = project.GitHubRepo;
-            projectRepo.innerHTML = "GitHub Repo";
-            projectDiv.appendChild(projectRepo);
-
-            if (!project.GitHubRepo) {
-                projectRepo.style.display = "none";
+            if (project.Webpage) {
+                projectRepo.href = project.Webpage;
+                projectRepo.innerHTML = "Visit Website";
+            } else if (project.GitHubRepo) {
+                projectRepo.href = project.GitHubRepo;
+                projectRepo.innerHTML = "GitHub Repo";
+            } else {
+                projectRepo.style.display = "none"; // Hide if neither key exists
             }
+            projectDiv.appendChild(projectRepo);
 
             const openProject = document.createElement("button");
             openProject.id = `openProject${index + 1}`;

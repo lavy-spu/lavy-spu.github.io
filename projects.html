@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Vy La</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="#home"><h1>Vy La</h1></a>
+            </div>
+            <nav class="menu-list">
+                <ul>
+                    <a href="index.html#about"><li>About</li></a>
+                    <a href="experience.html"><li>Experience</li></a>
+                    <a href="projects.html"><li>Projects</li></a>
+                </ul>
+            </nav>
+            <div class="icons">
+                <a id="email-icon" href="mailto:lav@spu.edu"></a>
+                <a href="https://github.com/lavy-spu" target="_blank"><img src="./Icons/github.png" alt="GitHub"></a>
+                <a href="https://www.linkedin.com/in/vy-la/" target="_blank"><img src="./Icons/linkedin.png" alt="LinkedIn"></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Projects section -->
+    <section id="projects" class="main-section">
+        <h1>Projects</h1>
+        <div id="projectsContainer"></div>
+        <div id="modalPage">
+            <div class="carousel">
+                <p id="XOut">&times;</p>
+                <div id="imgList"></div>
+                <a id="prev">&#10094;</a>
+                <a id="next">&#10095;</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Built and designed by Vy La.<br>All rights reserved. ©</p>
+    </footer>
+
+    <script type="module" src="./Scripts/GetProjects.js"></script>
+</body>
+</html>
