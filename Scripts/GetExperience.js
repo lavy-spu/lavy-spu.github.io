@@ -69,3 +69,18 @@ function updateExperienceDetails(company) {
         modal.style.display = "block";
     };
 }
+
+    // Close the modal when the close button is clicked
+    const closeModalButton = document.getElementById("closeModal");
+    const modal = document.getElementById("resumeModal");
+
+    closeModalButton.onclick = () => {
+        modal.style.display = "none";
+    };
+
+    // Close the modal when clicking outside the modal content
+    window.onclick = (event) => {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    };

@@ -28,7 +28,7 @@
                     "Assisted a political science professor in developing interactive geography maps using NodeJS and MongoDB.",
                     "Collaborated with both political science and computer science professors to ensure project accuracy and functionality."
                 ],
-                "Resume": "VyLa_SWE_Resume_Feb_2025.pdf"
+                "Resume": "VyLa-Resume-May25.pdf"
             },
             {
                 "Name": "Seattle Pacific University",
@@ -40,7 +40,7 @@
                     "Led accessibility initiatives, introducing simplified navigation bars and intuitive structure, improving website usability by 10%",
                     "Provided support for software and media production projects."
                 ],
-                "Resume": "VyLa_SWE_Resume_Feb_2025.pdf"
+                "Resume": "VyLa-Resume-May25.pdf"
             },
             {
                 "Name": "Community Involvement",
@@ -51,7 +51,17 @@
                     "Volunteer at Seattle MATHCOUNTS Competition @ Microsoft Campus, Redmond, WA.",
                     "Session Assistant at UW Undergraduate Research Symposium @ University of Washington, Seattle, WA."
                 ],
-                "Resume": "VyLa_SWE_Resume_Feb_2025.pdf"
+                "Resume": "VyLa-Resume-May25.pdf"
+            },
+            {
+                "Name": "Certifications",
+                "Title": "Meta Front-End Developer Certificate",
+                "Date": "March 2025 - Present",
+                "Details": [
+                    "Designed and developed websites for local businesses using WordPress, enhancing their online presence.",
+                    "Created custom themes and plugins to meet specific client needs, improving user engagement and functionality."
+                ],
+                "Resume": "VyLa-Resume-May25.pdf"
             }
         ]
     },
