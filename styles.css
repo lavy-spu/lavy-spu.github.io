@@ -472,7 +472,7 @@ header {
     padding: 20px;
     margin: 40px;
     width: 300px; /* Fixed width for each project card */
-    height: 550px;
+    height: 600px;
     box-sizing: border-box; /* Include padding and border in the element's total width and height */
     transition: transform 0.3s, box-shadow 0.3s; 
 }
@@ -487,8 +487,8 @@ header {
 .project img {
     width: 100%; 
     height: auto; 
-    max-width: 100%; /* Make sure it doesn't exceed the container width */
-    display: block; /* Make sure it takes up the full width of the container */
+    max-width: 100%; 
+    display: block; 
     margin: 20px 15px 10px 0px; /* Top, Right, Bottom, Left */
 }
 

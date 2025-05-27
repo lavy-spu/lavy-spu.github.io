@@ -60,36 +60,36 @@
     },
     "Projects": {
         "Project1": {
-            "Title": "WhatColor",
-            "Desc": "An Android application that detect the color of an object when user uploads a picture from their camera roll.<br><br>&#8675",
+            "Title": "WhatColor Mobile App",
+            "Desc": "Team Project <br></br> An Android application that detect the color of an object when user uploads a picture from their camera roll.<br><br>&#8675",
             "Webpage": "https://www.figma.com/slides/CdSHDA6Nm0V6mXwnIYiUDS/WC-Digital-Poster?node-id=1-32&t=OI8vF1hNVSQN8GBv-1",
             "MainImage": "whatcolor-text-logo.png",
             "DetailImages": []
         },
         "Project2":{
             "Title": "Van Lang Vietnamese Language School Website",
-            "Desc": "Designed the school website using WordPress and ultilzied plugins for flexible customization.<br><br>&#8675",
+            "Desc": "Commissioned <br></br> Designed the school website using WordPress and ultilzied plugins for flexible customization.<br><br>&#8675",
             "Webpage": "https://beta.vanlangseattle.org/en/",
             "MainImage": "vanlang.png",
             "DetailImages": ""
         },
         "Project3": {
             "Title": "HTTP Library",
-            "Desc": "Front end library that accepts HTTP requests from an HTML form.<br><br>&#8675",
+            "Desc": "Team Project <br></br> Front end library that accepts HTTP requests from an HTML form.<br><br>&#8675",
             "GitHubRepo": "https://github.com/TSmedes/HTTP-library",
             "MainImage": "HTTP-Library-front.png",
             "DetailImages": []
         },
         "Project4": {
             "Title": "Web Crawler",
-            "Desc": "A web crawler application using Python to creates a web-link graphs and finds the Closeness Centrality for each node.<br><br>&#8675",
+            "Desc": "Team Project <br></br> A web crawler application using Python to creates a web-link graphs and finds the Closeness Centrality for each node.<br><br>&#8675",
             "GitHubRepo": "https://github.com/csc3430-winter2024/web-crawler-term-and-graph-10",
             "MainImage": "Web-Crawler.png",
             "DetailImages": []
         },
         "Project5": {
             "Title": "Task Manager",
-            "Desc": "A full stack web application that manages tasks from a database. Featuring Add, Delete, and Complete task functionalities.<br><br>&#8675",
+            "Desc": "Team Project <br></br> A full stack web application that manages tasks from a database. Featuring Add, Delete, and Complete task functionalities.<br><br>&#8675",
             "GitHubRepo": "https://github.com/TSmedes/task-manager",
             "MainImage": "task-manager-demo.png",
             "DetailImages": []
