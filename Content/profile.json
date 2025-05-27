@@ -55,11 +55,12 @@
             },
             {
                 "Name": "Certifications",
-                "Title": "Meta Front-End Developer Certificate",
+                "Title": "Meta Front-End Developer Professional Certificate",
                 "Date": "March 2025 - Present",
                 "Details": [
-                    "Designed and developed websites for local businesses using WordPress, enhancing their online presence.",
-                    "Created custom themes and plugins to meet specific client needs, improving user engagement and functionality."
+                    "Created a responsive website using HTML to structure content, CSS to handle visual style, and JavaScript to develop interactive experiences.", 
+                    "Learned Bootstrap CSS Framework to create webpages and work with GitHub repositories and version control.",
+                    "Learned to use React in relation to Javascript libraries and frameworks."
                 ],
                 "Resume": "VyLa-Resume-May25.pdf"
             }

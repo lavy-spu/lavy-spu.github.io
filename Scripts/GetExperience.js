@@ -24,7 +24,6 @@ import { ConfigSingleton } from "./GetProfile.js";
     }
 })();
 
-// Populate the sidebar with company names
 function populateSidebar(companies) {
     const sidebar = document.getElementById("company-list");
     sidebar.innerHTML = ""; // Clear existing content
@@ -37,14 +36,27 @@ function populateSidebar(companies) {
 
         // Add click listener to load company details
         companyItem.addEventListener("click", () => {
+            // Remove the 'active' class from all sidebar items
+            const allItems = document.querySelectorAll(".sidebar-item");
+            allItems.forEach((item) => item.classList.remove("active"));
+
+            // Add the 'active' class to the clicked item
+            companyItem.classList.add("active");
+
+            // Update the experience details
             updateExperienceDetails(companies[index]);
         });
 
         sidebar.appendChild(companyItem);
     });
+
+    // Set the first item as active by default
+    const firstItem = sidebar.querySelector(".sidebar-item");
+    if (firstItem) {
+        firstItem.classList.add("active");
+    }
 }
 
-// Update the details section with the selected company's data
 function updateExperienceDetails(company) {
     document.getElementById("exp-title").textContent = `${company.Title}`;
     document.getElementById("exp-date").textContent = company.Date;
@@ -70,17 +82,17 @@ function updateExperienceDetails(company) {
     };
 }
 
-    // Close the modal when the close button is clicked
-    const closeModalButton = document.getElementById("closeModal");
-    const modal = document.getElementById("resumeModal");
+// Close the modal when the close button is clicked
+const closeModalButton = document.getElementById("closeModal");
+const modal = document.getElementById("resumeModal");
 
-    closeModalButton.onclick = () => {
+closeModalButton.onclick = () => {
+    modal.style.display = "none";
+};
+
+// Close the modal when clicking outside the modal content
+window.onclick = (event) => {
+    if (event.target === modal) {
         modal.style.display = "none";
-    };
-
-    // Close the modal when clicking outside the modal content
-    window.onclick = (event) => {
-        if (event.target === modal) {
-            modal.style.display = "none";
-        }
-    };
+    }
+};

@@ -328,17 +328,21 @@ header {
 
 .experience-sidebar .sidebar-item {
     padding: 15px 20px;
-    font-family: "PressStart2p-Regular",sans-serif;
+    font-family: "PressStart2P-Regular", sans-serif;
     font-size: 1rem;
     cursor: pointer;
     color: #222323; 
     transition: color 0.3s ease, background-color 0.3s ease;
 }
 
-.experience-sidebar .sidebar-item:hover,
+.experience-sidebar .sidebar-item:hover{
+    background-color: #222323;
+    color:#00FFD1;
+}
+
 .experience-sidebar .sidebar-item.active {
-    background-color: #333; 
-    color: #fff; 
+    background-color: #333; /* Highlight background */
+    color: #f0f6f0; /* Highlight text color */
 }
 
 /* Main Details Styling */
