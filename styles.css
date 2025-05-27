@@ -261,6 +261,21 @@ header {
     pointer-events: none; 
 }
 
+#pfLanguages {
+    font-family: "PixelOperator", sans-serif;
+    font-size: 1.4em;
+    display: grid; 
+    grid-template-columns: repeat(2, 1fr); /* two equal columns */
+    gap: 10px; 
+    list-style-type: disc; 
+    padding-left: 20px; 
+    text-align: left; 
+}
+
+#pfLanguages li {
+    margin-bottom: 10px; /* Add spacing between list items */
+}
+
 /****** Experience Section ******/
 .resume-button{
     font-family: "PressStart2P-Regular", sans-serif;

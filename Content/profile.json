@@ -2,16 +2,8 @@
     "About": {
         "Thumbnail": "vy-card.gif",
         "AboutText": "I'm studying Computer Science @ <a href='https://spu.edu' target='_blank'>Seattle Pacific University</a>. <br></br> I like to design things that are simple and intuitive. I have a passion for creating user-friendly applications and websites that enhance the user experience. My goal is to leverage my skills in software development to build innovative solutions that make a difference.",
-        "Languages": [
-            "C++",
-            "Python",
-            "JavaScript",
-            "HTML",
-            "CSS",
-            "SQL",
-            "React Native"
-        ],
-        "Location": "Seattle, WA"
+        "Languages": [],
+        "Location": ""
     },
     "Contact": {
         "LinkedIn": "https://www.linkedin.com/in/vy-la/",
@@ -70,7 +62,7 @@
         "Project1": {
             "Title": "WhatColor",
             "Desc": "An Android application that detect the color of an object when user uploads a picture from their camera roll.<br><br>&#8675",
-            "GitHubRepo": "https://github.com/What-Color-SPU/What-Color",
+            "Webpage": "https://www.figma.com/slides/CdSHDA6Nm0V6mXwnIYiUDS/WC-Digital-Poster?node-id=1-32&t=OI8vF1hNVSQN8GBv-1",
             "MainImage": "whatcolor-text-logo.png",
             "DetailImages": []
         },
