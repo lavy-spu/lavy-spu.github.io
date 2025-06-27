@@ -155,7 +155,7 @@ header {
 /* Navigation Links */
 .menu-list ul {
     display: flex;
-    gap: 20px;
+    gap: 50px;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -165,11 +165,75 @@ header {
     text-decoration: none;
     color: #f0f6f0;
     font-size: 1.2em;
+    text-align: justify;
 }
 
-.menu-list a:hover {
-    color: #00FFD1;
+/* Glitch Effect for Navigation Links */
+[glitch] {
+  display: inline-block;
+  position: relative;
 }
+[glitch]:after {
+  --slice-0: inset(50% 0 50% 0%);
+  --slice-1: inset(0 0 50% 0);
+  --slice-2: inset(0 0 0 0);
+  --slice-3: inset(50% 0 0 0);
+  content: attr(glitch);
+  /*     change to whatever color, default green */
+  color: #00FFD1;
+  visibility: visible;
+  position: absolute;
+  display: block;
+  /*     how big the text needs to scale compared to its original size */
+  transform: scale(1.25);
+  -webkit-clip-path: var(--slice-0);
+  clip-path: var(--slice-0);
+  top: 0;
+  animation: glitchback 0.1s reverse;
+  animation-timing-function: step-end;
+}
+[glitch]:hover {
+  visibility: hidden;
+  transition: visibility 0.1s;
+}
+[glitch]:hover:after {
+  --slice-2: inset(0% 0% 0 0);
+  -webkit-clip-path: var(--slice-2);
+  clip-path: var(--slice-2);
+  animation: glitch 0.1s;
+  animation-timing-function: step-end;
+}
+@keyframes glitch {
+  0% {
+    -webkit-clip-path: var(--slice-0);
+    clip-path: var(--slice-0);
+  }
+  10% {
+    -webkit-clip-path: var(--slice-1);
+    clip-path: var(--slice-1);
+  }
+  to {
+    -webkit-clip-path: var(--slice-2);
+    clip-path: var(--slice-2);
+  }
+}
+@keyframes glitchback {
+  0% {
+    -webkit-clip-path: var(--slice-0);
+    clip-path: var(--slice-0);
+  }
+  10% {
+    -webkit-clip-path: var(--slice-3);
+    clip-path: var(--slice-3);
+  }
+  to {
+    -webkit-clip-path: var(--slice-2);
+    clip-path: var(--slice-2);
+  }
+}
+
+
+
 
 /* Social Media Icons */
 .icons {
