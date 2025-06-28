@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "daisyui";
 
 /* Imports Fonts */
 @font-face {
@@ -45,6 +46,7 @@ html {
     margin: auto auto 30px auto;
     width: 550px;
     height: auto;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
 }
 
 /* Blinking caret animation */
@@ -76,6 +78,75 @@ body {
     place-items: center;
     max-width: 1600px;
     align-content: center;
+    min-height: 100vh; /* Ensure background covers full viewport */
+    /* Sticky footer setup */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Main content wrapper for sticky footer */
+.main-content {
+    flex: 1; /* Takes up all available space, pushing footer to bottom */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Ensure sections take up appropriate space */
+section {
+    flex-shrink: 0; /* Prevent sections from shrinking */
+}
+
+/* Additional responsive body adjustments */
+@media (max-width: 768px) {
+    body {
+        max-width: 100%; /* Use full width on mobile */
+        padding: 0; /* Remove any padding on mobile */
+    }
+}
+
+@media (min-width: 1600px) {
+    body {
+        max-width: none; /* Allow full width on ultra-wide screens */
+    }
+}
+
+/* Ensure background covers full viewport on all devices */
+html, body {
+    width: 100%;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Responsive background patterns */
+@media (max-width: 480px) {
+    body {
+        background-image: radial-gradient(#222323 0.8px, transparent 0.8px);
+        background-size: 15px 15px; /* Smaller dots on very small screens */
+        animation: moveBackgroundMobile 80s linear infinite;
+    }
+}
+
+@media (max-width: 768px) and (min-width: 481px) {
+    body {
+        background-image: radial-gradient(#222323 0.9px, transparent 0.9px);
+        background-size: 18px 18px; /* Medium dots on tablets/large phones */
+        animation: moveBackgroundTablet 90s linear infinite;
+    }
+}
+
+@media (min-width: 1200px) {
+    body {
+        background-image: radial-gradient(#222323 1.2px, transparent 1.2px);
+        background-size: 24px 24px; /* Larger dots on large screens */
+        animation: moveBackgroundDesktop 120s linear infinite;
+    }
+}
+
+@media (min-width: 1600px) {
+    body {
+        background-image: radial-gradient(#222323 1.4px, transparent 1.4px);
+        background-size: 28px 28px; /* Even larger dots on ultra-wide screens */
+        animation: moveBackgroundUltrawide 140s linear infinite;
+    }
 }
 
 a {
@@ -85,6 +156,27 @@ a {
 @keyframes moveBackground {
     0% { background-position: 0 0; }
     100% { background-position: 1000px 1000px; }
+}
+
+/* Responsive background animations */
+@keyframes moveBackgroundMobile {
+    0% { background-position: 0 0; }
+    100% { background-position: 600px 600px; } /* Smaller movement for mobile */
+}
+
+@keyframes moveBackgroundTablet {
+    0% { background-position: 0 0; }
+    100% { background-position: 800px 800px; } /* Medium movement for tablets */
+}
+
+@keyframes moveBackgroundDesktop {
+    0% { background-position: 0 0; }
+    100% { background-position: 1200px 1200px; } /* Larger movement for desktop */
+}
+
+@keyframes moveBackgroundUltrawide {
+    0% { background-position: 0 0; }
+    100% { background-position: 1500px 1500px; } /* Maximum movement for ultra-wide */
 }
 
 p {
@@ -114,8 +206,8 @@ h4 {
 
 footer p{
     /*font-family: "Lexend", sans-serif; */
-    font-size: 1.8em;
-    font-weight: 600; 
+    font-size: 2em;
+    font-weight: normal;
 }
 
 /* Main Layout */
@@ -125,23 +217,51 @@ main {
 }
 
 /* Header Styling */
-header {
-    background-color: #222323;
+header.navbar {
+    background-color: #222323 !important;
     padding: 20px 0;
     font-family: "Minecraftia-Regular", sans-serif;
-    width: 100%;
+    width: 100% !important;
+    max-width: none !important;
     position: fixed;
     top: 0;
     z-index: 1000;
+    border-radius: 0; /* Override DaisyUI default */
+    left: 0;
+    right: 0;
 }
 
+/* Remove old container styling and use DaisyUI navbar structure */
+.navbar {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    width: 100% !important;
+    max-width: none !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+}
+
+/* Ensure navbar spans full width */
+.navbar-start,
+.navbar-center,
+.navbar-end {
+    display: flex !important;
+    align-items: center !important;
+}
+
+.navbar-center {
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.navbar-end {
+    margin-left: auto;
+}
+
+/* Remove old container class conflicts */
 .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+    display: none; /* Hide old container since we're using DaisyUI navbar structure */
 }
 
 /* Logo */
@@ -234,30 +354,91 @@ header {
   }
 }
 
-
-
-
 /* Social Media Icons */
+.navbar-end {
+    display: flex !important;
+    align-items: center !important;
+    margin-left: auto !important;
+    position: relative !important;
+}
+
 .icons {
-    display: flex;
+    display: flex !important;
     gap: 18px;
+    align-items: center;
+    margin-left: auto;
+    padding-right: 20px; /* Add some padding to prevent icons from touching the edge */
+}
+
+.icons a {
+    display: inline-block !important;
+    text-decoration: none;
 }
 
 .icons a img {
-    width: 28px;
-    height: 28px;
-    background-color: #f0f6f0;
+    width: 28px !important;
+    height: 28px !important;
+    background-color: #f0f6f0 !important;
+    border-radius: 4px;
+    padding: 2px;
+    transition: background-color 0.3s ease;
+    display: block !important;
 }
 
 .icons a img:hover {
-    background-color: #00FFD1;
+    background-color: #00FFD1 !important;
+}
+
+/* Ensure navbar-end displays the icons properly at all screen sizes */
+.navbar-end .icons {
+    margin-right: 0;
+    z-index: 10;
+    position: relative;
+}
+
+/* Force visibility on large screens */
+@media (min-width: 1024px) {
+    .navbar-end {
+        display: flex !important;
+        visibility: visible !important;
+    }
+    
+    .navbar-end .icons {
+        display: flex !important;
+        visibility: visible !important;
+    }
 }
 
 /* Main Content Padding for Header */
 .main-section {
     padding-top: 80px; 
     margin: 0 auto;
-    width: 80%;
+    width: 90%; /* More responsive than fixed 80% */
+    max-width: 1400px; /* Prevent content from becoming too wide on large screens */
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* Responsive adjustments for different screen sizes */
+@media (max-width: 768px) {
+    .main-section {
+        width: 95%; /* Use more screen space on mobile */
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .main-section {
+        width: 85%; /* Slightly wider on large screens */
+    }
+}
+
+@media (min-width: 1600px) {
+    .main-section {
+        width: 80%; /* Keep reasonable width on very large screens */
+        max-width: 1600px;
+    }
 }
 
 /* Specific Sections */
@@ -273,6 +454,40 @@ header {
     align-items: center;
     padding: 20px;
     margin-top: 60px;
+}
+
+/* Make profile thumbnail responsive */
+#pfThumbnail {
+    display: block;
+    margin: auto auto 30px auto;
+    width: 100%;
+    max-width: 550px; /* Maximum size */
+    height: auto;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+/* Responsive home section */
+@media (max-width: 768px) {
+    #home {
+        padding: 15px;
+        margin-top: 40px;
+    }
+    
+    #pfThumbnail {
+        max-width: 400px;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    #home {
+        padding: 10px;
+    }
+    
+    #pfThumbnail {
+        max-width: 300px;
+        margin-bottom: 15px;
+    }
 }
 
 #about {
@@ -297,16 +512,48 @@ header {
     margin-top: 30px;
     gap: 20px; /* Space between the description and the portrait */
     padding: 40px 20px;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
 
 .about-description {
     flex: 1;
     text-align: justify;
+    min-width: 300px; /* Ensure minimum width for readability */
 }
 
 .about-portrait {
     position: relative;
     width: 300px; 
+    flex-shrink: 0; /* Prevent shrinking */
+}
+
+/* Responsive about section */
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+        padding: 30px 15px;
+    }
+    
+    .about-portrait {
+        width: 250px;
+        margin: 0 auto;
+    }
+    
+    .about-description {
+        min-width: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-container {
+        padding: 20px 10px;
+    }
+    
+    .about-portrait {
+        width: 200px;
+    }
 }
 
 #pfPortrait {
@@ -340,6 +587,32 @@ header {
 
 #pfLanguages li {
     margin-bottom: 10px; /* Add spacing between list items */
+}
+
+/* Responsive skills list */
+@media (max-width: 768px) {
+    #pfLanguages {
+        font-size: 1.2em;
+        gap: 8px;
+        padding-left: 15px;
+    }
+    
+    #pfLanguages li {
+        margin-bottom: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    #pfLanguages {
+        grid-template-columns: 1fr; /* Single column on very small screens */
+        font-size: 1.1em;
+        gap: 6px;
+        padding-left: 10px;
+    }
+    
+    #pfLanguages li {
+        margin-bottom: 6px;
+    }
 }
 
 /****** Experience Section ******/
@@ -562,9 +835,13 @@ header {
 footer {
     background-color: #222323;
     color: #f0f6f0;
-    padding: 10px;
+    padding: 20px 10px; /* Increased padding for better visual separation */
     font-size: 0.8em;
     font-family: "PressStart2P-Regular", sans-serif;
+    margin-top: auto; /* Push footer to bottom */
+    width: 100%;
+    flex-shrink: 0; /* Prevent footer from shrinking */
+    text-align: center;
 }
 
 footer p {
@@ -586,6 +863,78 @@ footer p {
     color: #f0f6f0;
 }
 
+/* Home container styling */
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+}
+
+/* Down arrow styling and animations */
+#down-arrow {
+    display: block;
+    width: 45px;
+    height: 45px;
+    margin: 30px auto 0 auto;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    animation: bounce 1s infinite;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+#down-arrow:hover {
+    transform: scale(1.2);
+    animation: pulse 0.8s infinite;
+}
+
+/* Bounce animation for down arrow */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Pulse animation on hover */
+@keyframes pulse {
+    0% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.3);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+}
+
+/* Responsive down arrow */
+@media (max-width: 768px) {
+    #down-arrow {
+        width: 35px;
+        height: 35px;
+        margin: 20px auto 0 auto;
+    }
+}
+
+@media (max-width: 480px) {
+    #down-arrow {
+        width: 30px;
+        height: 30px;
+        margin: 15px auto 0 auto;
+    }
+}
+
 /* Media Queries */
 @media (max-width: 768px) {
     .container {
@@ -598,9 +947,21 @@ footer p {
         gap: 10px;
     }
 
-    .icons {
-        margin-top: 10px;
+    .navbar-end {
+        display: flex !important;
     }
+
+    .icons {
+        display: flex !important;
+        margin-top: 0 !important;
+        gap: 15px;
+    }
+
+    .icons a img {
+        width: 24px !important;
+        height: 24px !important;
+    }
+
     .experience-container {
         flex-direction: column;
     }
@@ -609,6 +970,34 @@ footer p {
         flex: 1;
         border-right: none;
         border-bottom: 2px solid #333;
+    }
+}
+
+/* Ensure icons are visible on large screens (24+ inch monitors) */
+@media (min-width: 1024px) {
+    .navbar-end {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+    
+    .navbar-end .icons {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+    
+    .icons a img {
+        display: block !important;
+        visibility: visible !important;
+    }
+}
+
+/* Extra large screens (27+ inch monitors) */
+@media (min-width: 1440px) {
+    .navbar-end, .navbar-end .icons {
+        display: flex !important;
+        visibility: visible !important;
     }
 }
 
@@ -684,15 +1073,53 @@ footer p {
     cursor: pointer;
 }
 
-/* Footer */
-footer {
-    background-color: transparent;
-    color: #222323;
-    padding: 10px;
-    font-size: 0.8em;
-    text-align: center;
+/* Responsive Typography */
+@media (max-width: 768px) {
+    p {
+        font-size: 1.2em;
+    }
+    
+    h1 {
+        font-size: 1.6em;
+    }
+    
+    h3 {
+        font-size: 1.1em;
+        margin-top: 20px;
+        margin-bottom: 15px;
+    }
+    
+    h4 {
+        font-size: 1em;
+        margin-top: 20px;
+    }
+    
+    footer p {
+        font-size: 1.4em;
+    }
 }
 
-footer p {
-    margin: 0;
+@media (max-width: 480px) {
+    p {
+        font-size: 1em;
+    }
+    
+    h1 {
+        font-size: 1.4em;
+    }
+    
+    h3 {
+        font-size: 1em;
+        margin-top: 15px;
+        margin-bottom: 10px;
+    }
+    
+    h4 {
+        font-size: 0.9em;
+        margin-top: 15px;
+    }
+    
+    footer p {
+        font-size: 1.2em;
+    }
 }
