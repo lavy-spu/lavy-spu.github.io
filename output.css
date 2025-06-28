@@ -11,6 +11,7 @@
     --spacing: 0.25rem;
     --text-xl: 1.25rem;
     --text-xl--line-height: calc(1.75 / 1.25);
+    --font-weight-bold: 700;
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
   }
@@ -775,6 +776,29 @@
     padding: 0.5rem;
     min-height: 4rem;
   }
+  .footer {
+    display: grid;
+    width: 100%;
+    grid-auto-flow: row;
+    place-items: start;
+    column-gap: calc(0.25rem * 4);
+    row-gap: calc(0.25rem * 10);
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    & > * {
+      display: grid;
+      place-items: start;
+      gap: calc(0.25rem * 2);
+    }
+    &.footer-center {
+      grid-auto-flow: column dense;
+      place-items: center;
+      text-align: center;
+      & > * {
+        place-items: center;
+      }
+    }
+  }
   .navbar-end {
     display: inline-flex;
     align-items: center;
@@ -808,8 +832,14 @@
   .flex {
     display: flex;
   }
+  .grid {
+    display: grid;
+  }
   .hidden {
     display: none;
+  }
+  .inline-block {
+    display: inline-block;
   }
   .h-5 {
     height: calc(var(--spacing) * 5);
@@ -825,6 +855,15 @@
   }
   .w-52 {
     width: calc(var(--spacing) * 52);
+  }
+  .footer-horizontal {
+    grid-auto-flow: column;
+    &.footer-center {
+      grid-auto-flow: row dense;
+    }
+  }
+  .grid-flow-col {
+    grid-auto-flow: column;
   }
   .justify-center {
     justify-content: center;
@@ -860,8 +899,17 @@
   .bg-base-100 {
     background-color: var(--color-base-100);
   }
+  .bg-primary {
+    background-color: var(--color-primary);
+  }
+  .fill-current {
+    fill: currentcolor;
+  }
   .p-2 {
     padding: calc(var(--spacing) * 2);
+  }
+  .p-10 {
+    padding: calc(var(--spacing) * 10);
   }
   .px-1 {
     padding-inline: calc(var(--spacing) * 1);
@@ -872,6 +920,13 @@
   .text-xl {
     font-size: var(--text-xl);
     line-height: var(--tw-leading, var(--text-xl--line-height));
+  }
+  .font-bold {
+    --tw-font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-bold);
+  }
+  .text-primary-content {
+    color: var(--color-primary-content);
   }
   .shadow {
     --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
@@ -1107,7 +1162,7 @@ main {
 }
 header.navbar {
   background-color: #222323 !important;
-  padding: 20px 0;
+  padding: 25px 0;
   font-family: "Minecraftia-Regular", sans-serif;
   width: 100% !important;
   max-width: none !important;
@@ -1126,6 +1181,7 @@ header.navbar {
   display: flex !important;
   justify-content: space-between !important;
   align-items: center !important;
+  overflow: visible !important;
 }
 .navbar-start, .navbar-center, .navbar-end {
   display: flex !important;
@@ -1134,6 +1190,7 @@ header.navbar {
 .navbar-center {
   flex-grow: 1;
   justify-content: center;
+  overflow: visible !important;
 }
 .navbar-end {
   margin-left: auto;
@@ -1155,72 +1212,29 @@ header.navbar {
   list-style: none;
   margin: 0;
   padding: 0;
+  overflow: visible;
 }
 .menu-list a {
   text-decoration: none;
   color: #f0f6f0;
-  font-size: 1.2em;
-  text-align: justify;
-}
-[glitch] {
-  display: inline-block;
+  font-size: 1.5em;
+  text-align: center;
+  padding: 20px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
   position: relative;
 }
-[glitch]:after {
-  --slice-0: inset(50% 0 50% 0%);
-  --slice-1: inset(0 0 50% 0);
-  --slice-2: inset(0 0 0 0);
-  --slice-3: inset(50% 0 0 0);
-  content: attr(glitch);
+.menu-list a.active {
+  color: #00FFD1 !important;
+}
+.menu-list a {
+  transition: transform 0.3s cubic-bezier(0.25, 1.5, 0.5, 1), color 0.3s ease;
+}
+.menu-list a:hover {
+  transform: translateY(-5px) scale(1.05);
   color: #00FFD1;
-  visibility: visible;
-  position: absolute;
-  display: block;
-  transform: scale(1.25);
-  -webkit-clip-path: var(--slice-0);
-  clip-path: var(--slice-0);
-  top: 0;
-  animation: glitchback 0.1s reverse;
-  animation-timing-function: step-end;
-}
-[glitch]:hover {
-  visibility: hidden;
-  transition: visibility 0.1s;
-}
-[glitch]:hover:after {
-  --slice-2: inset(0% 0% 0 0);
-  -webkit-clip-path: var(--slice-2);
-  clip-path: var(--slice-2);
-  animation: glitch 0.1s;
-  animation-timing-function: step-end;
-}
-@keyframes glitch {
-  0% {
-    -webkit-clip-path: var(--slice-0);
-    clip-path: var(--slice-0);
-  }
-  10% {
-    -webkit-clip-path: var(--slice-1);
-    clip-path: var(--slice-1);
-  }
-  to {
-    -webkit-clip-path: var(--slice-2);
-    clip-path: var(--slice-2);
-  }
-}
-@keyframes glitchback {
-  0% {
-    -webkit-clip-path: var(--slice-0);
-    clip-path: var(--slice-0);
-  }
-  10% {
-    -webkit-clip-path: var(--slice-3);
-    clip-path: var(--slice-3);
-  }
-  to {
-    -webkit-clip-path: var(--slice-2);
-    clip-path: var(--slice-2);
-  }
 }
 .navbar-end {
   display: flex !important;
@@ -1243,8 +1257,6 @@ header.navbar {
   width: 28px !important;
   height: 28px !important;
   background-color: #f0f6f0 !important;
-  border-radius: 4px;
-  padding: 2px;
   transition: background-color 0.3s ease;
   display: block !important;
 }
@@ -1311,6 +1323,27 @@ header.navbar {
   max-width: 550px;
   height: auto;
   filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+  transition: transform 0.3s ease, filter 0.3s ease;
+  cursor: pointer;
+}
+#pfThumbnail:hover {
+  transform: scale(1.05) rotate(1deg);
+  filter: drop-shadow(4px 4px 12px rgba(0, 0, 0, 0.4)) brightness(1.05);
+  animation: wiggle 0.5s ease-in-out;
+}
+@keyframes wiggle {
+  0%, 100% {
+    transform: scale(1.05) rotate(1deg);
+  }
+  25% {
+    transform: scale(1.05) rotate(-1deg);
+  }
+  50% {
+    transform: scale(1.05) rotate(1deg);
+  }
+  75% {
+    transform: scale(1.05) rotate(-0.5deg);
+  }
 }
 @media (max-width: 768px) {
   #home {
@@ -1622,6 +1655,20 @@ footer {
 }
 footer p {
   margin: 0;
+}
+footer nav a img {
+  width: 28px !important;
+  height: 28px !important;
+  background-color: #f0f6f0 !important;
+  transition: background-color 0.3s ease;
+  display: block !important;
+}
+footer nav a img:hover {
+  background-color: #00FFD1 !important;
+}
+footer nav a {
+  display: inline-block !important;
+  text-decoration: none;
 }
 .contact-button {
   font-family: "PressStart2P-Regular", sans-serif;
@@ -2074,6 +2121,10 @@ footer p {
   inherits: false;
   initial-value: solid;
 }
+@property --tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
 @property --tw-shadow {
   syntax: "*";
   inherits: false;
@@ -2158,6 +2209,7 @@ footer p {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
       --tw-border-style: solid;
+      --tw-font-weight: initial;
       --tw-shadow: 0 0 #0000;
       --tw-shadow-color: initial;
       --tw-shadow-alpha: 100%;

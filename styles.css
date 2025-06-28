@@ -219,7 +219,7 @@ main {
 /* Header Styling */
 header.navbar {
     background-color: #222323 !important;
-    padding: 20px 0;
+    padding: 25px 0; /* Increased from 20px to 25px */
     font-family: "Minecraftia-Regular", sans-serif;
     width: 100% !important;
     max-width: none !important;
@@ -240,6 +240,7 @@ header.navbar {
     display: flex !important;
     justify-content: space-between !important;
     align-items: center !important;
+    overflow: visible !important; /* Allow glitch effect to overflow navbar */
 }
 
 /* Ensure navbar spans full width */
@@ -253,6 +254,7 @@ header.navbar {
 .navbar-center {
     flex-grow: 1;
     justify-content: center;
+    overflow: visible !important; /* Allow glitch effect to overflow */
 }
 
 .navbar-end {
@@ -281,77 +283,35 @@ header.navbar {
     list-style: none;
     margin: 0;
     padding: 0;
+    overflow: visible; /* Allow glitch effect to overflow */
 }
 
 .menu-list a {
     text-decoration: none;
-    color: #f0f6f0;
-    font-size: 1.2em;
-    text-align: justify;
+    color: #f0f6f0; /* Changed to match glitch color for best effect */
+    font-size: 1.5em; /* Increased from 1.2em */
+    text-align: center;
+    padding: 20px 12px; /* Increased vertical padding to accommodate glitch effect */
+    display: flex; /* Use flexbox for consistent alignment */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    line-height: 1; /* Consistent line height */
+    position: relative; /* Ensure proper positioning context */
 }
 
-/* Glitch Effect for Navigation Links */
-[glitch] {
-  display: inline-block;
-  position: relative;
+/* Active page styling */
+.menu-list a.active {
+    color: #00FFD1 !important; /* Cyan color to indicate active page */
 }
-[glitch]:after {
-  --slice-0: inset(50% 0 50% 0%);
-  --slice-1: inset(0 0 50% 0);
-  --slice-2: inset(0 0 0 0);
-  --slice-3: inset(50% 0 0 0);
-  content: attr(glitch);
-  /*     change to whatever color, default green */
-  color: #00FFD1;
-  visibility: visible;
-  position: absolute;
-  display: block;
-  /*     how big the text needs to scale compared to its original size */
-  transform: scale(1.25);
-  -webkit-clip-path: var(--slice-0);
-  clip-path: var(--slice-0);
-  top: 0;
-  animation: glitchback 0.1s reverse;
-  animation-timing-function: step-end;
+
+/* Bouncy Hover Effect for Navigation Links */
+.menu-list a {
+    transition: transform 0.3s cubic-bezier(0.25, 1.5, 0.5, 1), color 0.3s ease;
 }
-[glitch]:hover {
-  visibility: hidden;
-  transition: visibility 0.1s;
-}
-[glitch]:hover:after {
-  --slice-2: inset(0% 0% 0 0);
-  -webkit-clip-path: var(--slice-2);
-  clip-path: var(--slice-2);
-  animation: glitch 0.1s;
-  animation-timing-function: step-end;
-}
-@keyframes glitch {
-  0% {
-    -webkit-clip-path: var(--slice-0);
-    clip-path: var(--slice-0);
-  }
-  10% {
-    -webkit-clip-path: var(--slice-1);
-    clip-path: var(--slice-1);
-  }
-  to {
-    -webkit-clip-path: var(--slice-2);
-    clip-path: var(--slice-2);
-  }
-}
-@keyframes glitchback {
-  0% {
-    -webkit-clip-path: var(--slice-0);
-    clip-path: var(--slice-0);
-  }
-  10% {
-    -webkit-clip-path: var(--slice-3);
-    clip-path: var(--slice-3);
-  }
-  to {
-    -webkit-clip-path: var(--slice-2);
-    clip-path: var(--slice-2);
-  }
+
+.menu-list a:hover {
+    transform: translateY(-5px) scale(1.05);
+    color: #00FFD1;
 }
 
 /* Social Media Icons */
@@ -379,8 +339,6 @@ header.navbar {
     width: 28px !important;
     height: 28px !important;
     background-color: #f0f6f0 !important;
-    border-radius: 4px;
-    padding: 2px;
     transition: background-color 0.3s ease;
     display: block !important;
 }
@@ -464,6 +422,22 @@ header.navbar {
     max-width: 550px; /* Maximum size */
     height: auto;
     filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+    transition: transform 0.3s ease, filter 0.3s ease;
+    cursor: pointer;
+}
+
+#pfThumbnail:hover {
+    transform: scale(1.05) rotate(1deg);
+    filter: drop-shadow(4px 4px 12px rgba(0, 0, 0, 0.4)) brightness(1.05);
+    animation: wiggle 0.5s ease-in-out;
+}
+
+/* Wiggle animation for hover */
+@keyframes wiggle {
+    0%, 100% { transform: scale(1.05) rotate(1deg); }
+    25% { transform: scale(1.05) rotate(-1deg); }
+    50% { transform: scale(1.05) rotate(1deg); }
+    75% { transform: scale(1.05) rotate(-0.5deg); }
 }
 
 /* Responsive home section */
@@ -846,6 +820,24 @@ footer {
 
 footer p {
     margin: 0;
+}
+
+/* Footer Social Icons - Background colors without borders */
+footer nav a img {
+    width: 28px !important;
+    height: 28px !important;
+    background-color: #f0f6f0 !important;
+    transition: background-color 0.3s ease;
+    display: block !important;
+}
+
+footer nav a img:hover {
+    background-color: #00FFD1 !important;
+}
+
+footer nav a {
+    display: inline-block !important;
+    text-decoration: none;
 }
 
 /* Button Styling */
