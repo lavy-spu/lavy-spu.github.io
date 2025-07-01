@@ -17,9 +17,9 @@
                     </svg>
                 </div>
                 <ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                    <li><a glitch="ABOUT" href="index.html#about">About</a></li>
-                    <li><a glitch="EXPERIENCE" href="experience.html">Experience</a></li>
-                    <li><a glitch="PROJECTS" href="projects.html" class="active">Projects</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="experience.html">Experience</a></li>
+                    <li><a href="projects.html" class="active">Projects</a></li>
                     <!-- Mobile social icons -->
                     <li class="border-t border-gray-300 mt-2 pt-2">
                         <div class="flex justify-center gap-4">
@@ -46,13 +46,17 @@
         
         <!-- Desktop menu -->
         <div class="navbar-center hidden lg:flex">
-            <nav class="menu-list">
-                <ul class="menu menu-horizontal px-1">
-                    <li><a glitch="ABOUT" href="index.html#about">About</a></li>
-                    <li><a glitch="EXPERIENCE" href="experience.html">Experience</a></li>
-                    <li><a glitch="PROJECTS" href="projects.html" class="active">Projects</a></li>
-                </ul>
-            </nav>
+            <div class="radio-group">
+                <input type="radio" name="nav" id="nav-about">
+                <label for="nav-about">About</label>
+                <input type="radio" name="nav" id="nav-experience">
+                <label for="nav-experience">Experience</label>
+                <input type="radio" name="nav" id="nav-projects" checked>
+                <label for="nav-projects">Projects</label>
+                <div class="selection-indicator-wrapper">
+                    <span></span>
+                </div>
+            </div>
         </div>
         
         <!-- Social icons for desktop -->
@@ -124,5 +128,7 @@
     </footer>
 
     <script type="module" src="./Scripts/GetProjects.js"></script>
+    <script type="module" src="./Scripts/radioNavigation.js"></script>
+    <script type="module" src="./Scripts/dynamicTextCoverage.js"></script>
 </body>
 </html>

@@ -240,7 +240,6 @@ header.navbar {
     display: flex !important;
     justify-content: space-between !important;
     align-items: center !important;
-    overflow: visible !important; /* Allow glitch effect to overflow navbar */
 }
 
 /* Ensure navbar spans full width */
@@ -254,7 +253,6 @@ header.navbar {
 .navbar-center {
     flex-grow: 1;
     justify-content: center;
-    overflow: visible !important; /* Allow glitch effect to overflow */
 }
 
 .navbar-end {
@@ -276,42 +274,152 @@ header.navbar {
     display: inline-block; /* Ensures proper spacing and alignment */
 }
 
-/* Navigation Links */
-.menu-list ul {
+/* Navigation Links with Liquid Morphing Effect */
+:root {
+    --bounciness: 15; /* Adjust this value to control bounce intensity */
+}
+
+.radio-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    position: relative;
+}
+
+.radio-group > input[type="radio"] {
+    display: none;
+}
+
+.radio-group > label {
+    padding: 0.5rem 1.5rem;
     display: flex;
-    gap: 50px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    overflow: visible; /* Allow glitch effect to overflow */
-}
-
-.menu-list a {
+    justify-content: center;
     text-decoration: none;
-    color: #f0f6f0; /* Changed to match glitch color for best effect */
-    font-size: 1.5em; /* Increased from 1.2em */
+    color: #f0f6f0;
+    font-size: 1.5em;
     text-align: center;
-    padding: 20px 12px; /* Increased vertical padding to accommodate glitch effect */
-    display: flex; /* Use flexbox for consistent alignment */
-    align-items: center; /* Center vertically */
-    justify-content: center; /* Center horizontally */
-    line-height: 1; /* Consistent line height */
-    position: relative; /* Ensure proper positioning context */
+    align-items: center;
+    line-height: 1;
+    position: relative;
+    z-index: 2;
+    transition: color 0.3s ease;
+    border-radius: 25px;
+    cursor: pointer;
+    font-family: "Minecraftia-Regular", sans-serif;
 }
 
-/* Active page styling */
-.menu-list a.active {
-    color: #00FFD1 !important; /* Cyan color to indicate active page */
+.radio-group > label:hover {
+    cursor: pointer;
 }
 
-/* Bouncy Hover Effect for Navigation Links */
-.menu-list a {
-    transition: transform 0.3s cubic-bezier(0.25, 1.5, 0.5, 1), color 0.3s ease;
+.selection-indicator-wrapper {
+    --transition-duration: 0.3s;
+    --morph-factor: 0;
+    width: 33.33%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    transition-duration: var(--transition-duration);
+    transition-timing-function: cubic-bezier(
+        0.25,
+        calc(var(--bounciness) / 10),
+        0.5,
+        1
+    );
+    left: 0;
+    top: 50%;
+    translate: 0 -50%;
+    pointer-events: none;
+    transform: translateX(calc(var(--morph-factor) * 10%));
+    scale: calc(1 + var(--morph-factor) * var(--morph-factor) * 0.05)
+          calc(1 - var(--morph-factor) * var(--morph-factor) * 0.1);
 }
 
-.menu-list a:hover {
-    transform: translateY(-5px) scale(1.05);
-    color: #00FFD1;
+.selection-indicator-wrapper > span {
+    background-color: #f0f6f0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 100px;
+    transition-duration: calc(1.25 * var(--transition-duration));
+    transition-timing-function: cubic-bezier(
+        0.95,
+        calc(0.5 * var(--bounciness)),
+        0,
+        1
+    );
+}
+
+/* Active state styling for checked radio button labels */
+.radio-group > input[type="radio"]:checked + label {
+    color: #222323;
+}
+
+.radio-group input[type="radio"]:nth-of-type(2):checked ~ .selection-indicator-wrapper {
+    left: 33.33%;
+}
+
+.radio-group input[type="radio"]:nth-of-type(3):checked ~ .selection-indicator-wrapper {
+    left: 66.66%;
+}
+
+.radio-group label:hover,
+.radio-group label:focus-visible {
+    ~ input:checked ~ .selection-indicator-wrapper {
+        --morph-factor: -1;
+    }
+}
+
+.radio-group label:active ~ input:checked ~ .selection-indicator-wrapper {
+    --morph-factor: 1;
+}
+
+.radio-group label:hover,
+.radio-group label:focus-visible {
+    ~ input ~ input:checked ~ .selection-indicator-wrapper {
+        --morph-factor: -2;
+    }
+}
+
+.radio-group label:active ~ input ~ input:checked ~ .selection-indicator-wrapper {
+    --morph-factor: 2;
+}
+
+.radio-group input:checked ~ input + label:hover,
+.radio-group input:checked ~ input + label:focus-visible {
+    ~ .selection-indicator-wrapper {
+        --morph-factor: 1;
+    }
+}
+
+.radio-group input:checked ~ input + label:active ~ .selection-indicator-wrapper {
+    --morph-factor: -1;
+}
+
+.radio-group input:checked ~ input ~ input + label:hover,
+.radio-group input:checked ~ input ~ input + label:focus-visible {
+    ~ .selection-indicator-wrapper {
+        --morph-factor: 2;
+    }
+}
+
+.radio-group input:checked ~ input ~ input + label:active ~ .selection-indicator-wrapper {
+    --morph-factor: -2;
+}
+
+.radio-group label:active ~ .selection-indicator-wrapper {
+    --transition-duration: 0.1s;
+}
+
+.radio-group label:active ~ .selection-indicator-wrapper > span {
+    scale: calc(1 + var(--morph-factor) * var(--morph-factor) * 0.05)
+          calc(1 - var(--morph-factor) * var(--morph-factor) * 0.1);
+    transition-timing-function: unset;
+}
+
+/* Dynamic character coverage styling */
+.radio-group label .char {
+    transition: color 0.2s ease;
+    display: inline;
 }
 
 /* Social Media Icons */
@@ -339,12 +447,33 @@ header.navbar {
     width: 28px !important;
     height: 28px !important;
     background-color: #f0f6f0 !important;
-    transition: background-color 0.3s ease;
+    transition: 
+        background-color 0.3s ease,
+        transform 0.4s cubic-bezier(0.25, calc(var(--bounciness) / 12), 0.5, 1),
+        scale 0.4s cubic-bezier(0.95, calc(0.4 * var(--bounciness)), 0, 1);
     display: block !important;
+    --icon-morph: 0;
 }
 
 .icons a img:hover {
     background-color: #00FFD1 !important;
+    transform: translateY(-3px) rotate(5deg);
+    scale: calc(1.1 + var(--icon-morph) * var(--icon-morph) * 0.02);
+    --icon-morph: -0.8;
+    transition: 
+        background-color 0.3s ease,
+        transform 0.4s cubic-bezier(0.25, calc(var(--bounciness) / 10), 0.5, 1),
+        scale 0.5s cubic-bezier(0.95, calc(0.5 * var(--bounciness)), 0, 1);
+}
+
+.icons a img:active {
+    --icon-morph: 1;
+    transform: translateY(-1px) rotate(2deg);
+    scale: calc(1.05 + var(--icon-morph) * var(--icon-morph) * 0.02);
+    transition: 
+        background-color 0.3s ease,
+        transform 0.15s ease-out,
+        scale 0.15s ease-out;
 }
 
 /* Ensure navbar-end displays the icons properly at all screen sizes */
@@ -1114,4 +1243,37 @@ footer nav a {
     footer p {
         font-size: 1.2em;
     }
+}
+
+/* Mobile dropdown menu bouncy effects */
+.dropdown-content .menu li a {
+    transition: 
+        transform 0.4s cubic-bezier(0.25, calc(var(--bounciness) / 10), 0.5, 1),
+        color 0.3s ease,
+        scale 0.4s cubic-bezier(0.95, calc(0.5 * var(--bounciness)), 0, 1);
+    --morph-factor: 0;
+    position: relative;
+}
+
+.dropdown-content .menu li a:hover {
+    transform: translateX(8px);
+    color: #00FFD1 !important;
+    scale: calc(1.03 + var(--morph-factor) * var(--morph-factor) * 0.02)
+          calc(1.01 - var(--morph-factor) * var(--morph-factor) * 0.03);
+    --morph-factor: -1;
+    transition: 
+        transform 0.4s cubic-bezier(0.25, calc(var(--bounciness) / 8), 0.5, 1),
+        color 0.3s ease,
+        scale 0.5s cubic-bezier(0.95, calc(0.6 * var(--bounciness)), 0, 1);
+}
+
+.dropdown-content .menu li a:active {
+    --morph-factor: 1;
+    transform: translateX(5px);
+    scale: calc(1.01 + var(--morph-factor) * var(--morph-factor) * 0.02)
+          calc(1.05 - var(--morph-factor) * var(--morph-factor) * 0.03);
+    transition: 
+        transform 0.15s ease-out,
+        color 0.3s ease,
+        scale 0.15s ease-out;
 }

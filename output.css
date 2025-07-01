@@ -12,6 +12,8 @@
     --text-xl: 1.25rem;
     --text-xl--line-height: calc(1.75 / 1.25);
     --font-weight-bold: 700;
+    --default-transition-duration: 150ms;
+    --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
   }
@@ -641,25 +643,62 @@
       }
     }
   }
-  .menu-horizontal {
-    display: inline-flex;
-    flex-direction: row;
-    & > li:not(.menu-title) > details > ul {
-      position: absolute;
-      margin-inline-start: calc(0.25rem * 0);
-      margin-top: calc(0.25rem * 4);
-      padding-block: calc(0.25rem * 2);
-      padding-inline-end: calc(0.25rem * 2);
+  .radio {
+    position: relative;
+    display: inline-block;
+    flex-shrink: 0;
+    cursor: pointer;
+    appearance: none;
+    border-radius: calc(infinity * 1px);
+    padding: calc(0.25rem * 1);
+    vertical-align: middle;
+    border: var(--border) solid var(--input-color, currentColor);
+    @supports (color: color-mix(in lab, red, red)) {
+      border: var(--border) solid var(--input-color, color-mix(in srgb, currentColor 20%, #0000));
     }
-    & > li > details > ul {
+    box-shadow: 0 1px oklch(0% 0 0 / calc(var(--depth) * 0.1)) inset;
+    --size: calc(var(--size-selector, 0.25rem) * 6);
+    width: var(--size);
+    height: var(--size);
+    color: var(--input-color, currentColor);
+    &:before {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border-radius: calc(infinity * 1px);
+      --tw-content: "";
+      content: var(--tw-content);
+      background-size: auto, calc(var(--noise) * 100%);
+      background-image: none, var(--fx-noise);
+    }
+    &:focus-visible {
+      outline: 2px solid currentColor;
+    }
+    &:checked, &[aria-checked="true"] {
+      animation: radio 0.2s ease-out;
+      border-color: currentColor;
+      background-color: var(--color-base-100);
       &:before {
-        content: none;
+        background-color: currentColor;
+        box-shadow: 0 -1px oklch(0% 0 0 / calc(var(--depth) * 0.1)) inset, 0 8px 0 -4px oklch(100% 0 0 / calc(var(--depth) * 0.1)) inset, 0 1px oklch(0% 0 0 / calc(var(--depth) * 0.1));
+      }
+      @media (forced-colors: active) {
+        &:before {
+          outline-style: var(--tw-outline-style);
+          outline-width: 1px;
+          outline-offset: calc(1px * -1);
+        }
+      }
+      @media print {
+        &:before {
+          outline: 0.25rem solid;
+          outline-offset: -1rem;
+        }
       }
     }
-    :where(& > li:not(.menu-title) > details > ul) {
-      border-radius: var(--radius-box);
-      background-color: var(--color-base-100);
-      box-shadow: 0 1px 3px 0 oklch(0% 0 0/0.1), 0 1px 2px -1px oklch(0% 0 0/0.1);
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 20%;
     }
   }
   .static {
@@ -763,6 +802,43 @@
       max-width: 96rem;
     }
   }
+  .label {
+    display: inline-flex;
+    align-items: center;
+    gap: calc(0.25rem * 1.5);
+    white-space: nowrap;
+    color: currentColor;
+    @supports (color: color-mix(in lab, red, red)) {
+      color: color-mix(in oklab, currentColor 60%, transparent);
+    }
+    &:has(input) {
+      cursor: pointer;
+    }
+    &:is(.input > *, .select > *) {
+      display: flex;
+      height: calc(100% - 0.5rem);
+      align-items: center;
+      padding-inline: calc(0.25rem * 3);
+      white-space: nowrap;
+      font-size: inherit;
+      &:first-child {
+        margin-inline-start: calc(0.25rem * -3);
+        margin-inline-end: calc(0.25rem * 3);
+        border-inline-end: var(--border) solid currentColor;
+        @supports (color: color-mix(in lab, red, red)) {
+          border-inline-end: var(--border) solid color-mix(in oklab, currentColor 10%, #0000);
+        }
+      }
+      &:last-child {
+        margin-inline-start: calc(0.25rem * 3);
+        margin-inline-end: calc(0.25rem * -3);
+        border-inline-start: var(--border) solid currentColor;
+        @supports (color: color-mix(in lab, red, red)) {
+          border-inline-start: var(--border) solid color-mix(in oklab, currentColor 10%, #0000);
+        }
+      }
+    }
+  }
   .mt-2 {
     margin-top: calc(var(--spacing) * 2);
   }
@@ -856,6 +932,9 @@
   .w-52 {
     width: calc(var(--spacing) * 52);
   }
+  .resize {
+    resize: both;
+  }
   .footer-horizontal {
     grid-auto-flow: column;
     &.footer-center {
@@ -911,9 +990,6 @@
   .p-10 {
     padding: calc(var(--spacing) * 10);
   }
-  .px-1 {
-    padding-inline: calc(var(--spacing) * 1);
-  }
   .pt-2 {
     padding-top: calc(var(--spacing) * 2);
   }
@@ -956,6 +1032,11 @@
         --btn-fg: currentColor;
       }
     }
+  }
+  .transition {
+    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter, display, visibility, content-visibility, overlay, pointer-events;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
   }
   .lg\:flex {
     @media (width >= 64rem) {
@@ -1181,7 +1262,6 @@ header.navbar {
   display: flex !important;
   justify-content: space-between !important;
   align-items: center !important;
-  overflow: visible !important;
 }
 .navbar-start, .navbar-center, .navbar-end {
   display: flex !important;
@@ -1190,7 +1270,6 @@ header.navbar {
 .navbar-center {
   flex-grow: 1;
   justify-content: center;
-  overflow: visible !important;
 }
 .navbar-end {
   margin-left: auto;
@@ -1206,35 +1285,113 @@ header.navbar {
   margin: 0;
   display: inline-block;
 }
-.menu-list ul {
-  display: flex;
-  gap: 50px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  overflow: visible;
+:root {
+  --bounciness: 15;
 }
-.menu-list a {
+.radio-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  position: relative;
+}
+.radio-group > input[type="radio"] {
+  display: none;
+}
+.radio-group > label {
+  padding: 0.5rem 1.5rem;
+  display: flex;
+  justify-content: center;
   text-decoration: none;
   color: #f0f6f0;
   font-size: 1.5em;
   text-align: center;
-  padding: 20px 12px;
-  display: flex;
   align-items: center;
-  justify-content: center;
   line-height: 1;
   position: relative;
+  z-index: 2;
+  transition: color 0.3s ease;
+  border-radius: 25px;
+  cursor: pointer;
+  font-family: "Minecraftia-Regular", sans-serif;
 }
-.menu-list a.active {
-  color: #00FFD1 !important;
+.radio-group > label:hover {
+  cursor: pointer;
 }
-.menu-list a {
-  transition: transform 0.3s cubic-bezier(0.25, 1.5, 0.5, 1), color 0.3s ease;
+.selection-indicator-wrapper {
+  --transition-duration: 0.3s;
+  --morph-factor: 0;
+  width: 33.33%;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+  transition-duration: var(--transition-duration);
+  transition-timing-function: cubic-bezier( 0.25, calc(var(--bounciness) / 10), 0.5, 1 );
+  left: 0;
+  top: 50%;
+  translate: 0 -50%;
+  pointer-events: none;
+  transform: translateX(calc(var(--morph-factor) * 10%));
+  scale: calc(1 + var(--morph-factor) * var(--morph-factor) * 0.05) calc(1 - var(--morph-factor) * var(--morph-factor) * 0.1);
 }
-.menu-list a:hover {
-  transform: translateY(-5px) scale(1.05);
-  color: #00FFD1;
+.selection-indicator-wrapper > span {
+  background-color: #f0f6f0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 100px;
+  transition-duration: calc(1.25 * var(--transition-duration));
+  transition-timing-function: cubic-bezier( 0.95, calc(0.5 * var(--bounciness)), 0, 1 );
+}
+.radio-group > input[type="radio"]:checked + label {
+  color: #222323;
+}
+.radio-group input[type="radio"]:nth-of-type(2):checked ~ .selection-indicator-wrapper {
+  left: 33.33%;
+}
+.radio-group input[type="radio"]:nth-of-type(3):checked ~ .selection-indicator-wrapper {
+  left: 66.66%;
+}
+.radio-group label:hover, .radio-group label:focus-visible {
+  ~ input:checked ~ .selection-indicator-wrapper {
+    --morph-factor: -1;
+  }
+}
+.radio-group label:active ~ input:checked ~ .selection-indicator-wrapper {
+  --morph-factor: 1;
+}
+.radio-group label:hover, .radio-group label:focus-visible {
+  ~ input ~ input:checked ~ .selection-indicator-wrapper {
+    --morph-factor: -2;
+  }
+}
+.radio-group label:active ~ input ~ input:checked ~ .selection-indicator-wrapper {
+  --morph-factor: 2;
+}
+.radio-group input:checked ~ input + label:hover, .radio-group input:checked ~ input + label:focus-visible {
+  ~ .selection-indicator-wrapper {
+    --morph-factor: 1;
+  }
+}
+.radio-group input:checked ~ input + label:active ~ .selection-indicator-wrapper {
+  --morph-factor: -1;
+}
+.radio-group input:checked ~ input ~ input + label:hover, .radio-group input:checked ~ input ~ input + label:focus-visible {
+  ~ .selection-indicator-wrapper {
+    --morph-factor: 2;
+  }
+}
+.radio-group input:checked ~ input ~ input + label:active ~ .selection-indicator-wrapper {
+  --morph-factor: -2;
+}
+.radio-group label:active ~ .selection-indicator-wrapper {
+  --transition-duration: 0.1s;
+}
+.radio-group label:active ~ .selection-indicator-wrapper > span {
+  scale: calc(1 + var(--morph-factor) * var(--morph-factor) * 0.05) calc(1 - var(--morph-factor) * var(--morph-factor) * 0.1);
+  transition-timing-function: unset;
+}
+.radio-group label .char {
+  transition: color 0.2s ease;
+  display: inline;
 }
 .navbar-end {
   display: flex !important;
@@ -1257,11 +1414,22 @@ header.navbar {
   width: 28px !important;
   height: 28px !important;
   background-color: #f0f6f0 !important;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.4s cubic-bezier(0.25, calc(var(--bounciness) / 12), 0.5, 1), scale 0.4s cubic-bezier(0.95, calc(0.4 * var(--bounciness)), 0, 1);
   display: block !important;
+  --icon-morph: 0;
 }
 .icons a img:hover {
   background-color: #00FFD1 !important;
+  transform: translateY(-3px) rotate(5deg);
+  scale: calc(1.1 + var(--icon-morph) * var(--icon-morph) * 0.02);
+  --icon-morph: -0.8;
+  transition: background-color 0.3s ease, transform 0.4s cubic-bezier(0.25, calc(var(--bounciness) / 10), 0.5, 1), scale 0.5s cubic-bezier(0.95, calc(0.5 * var(--bounciness)), 0, 1);
+}
+.icons a img:active {
+  --icon-morph: 1;
+  transform: translateY(-1px) rotate(2deg);
+  scale: calc(1.05 + var(--icon-morph) * var(--icon-morph) * 0.02);
+  transition: background-color 0.3s ease, transform 0.15s ease-out, scale 0.15s ease-out;
 }
 .navbar-end .icons {
   margin-right: 0;
@@ -1895,6 +2063,24 @@ footer nav a {
   footer p {
     font-size: 1.2em;
   }
+}
+.dropdown-content .menu li a {
+  transition: transform 0.4s cubic-bezier(0.25, calc(var(--bounciness) / 10), 0.5, 1), color 0.3s ease, scale 0.4s cubic-bezier(0.95, calc(0.5 * var(--bounciness)), 0, 1);
+  --morph-factor: 0;
+  position: relative;
+}
+.dropdown-content .menu li a:hover {
+  transform: translateX(8px);
+  color: #00FFD1 !important;
+  scale: calc(1.03 + var(--morph-factor) * var(--morph-factor) * 0.02) calc(1.01 - var(--morph-factor) * var(--morph-factor) * 0.03);
+  --morph-factor: -1;
+  transition: transform 0.4s cubic-bezier(0.25, calc(var(--bounciness) / 8), 0.5, 1), color 0.3s ease, scale 0.5s cubic-bezier(0.95, calc(0.6 * var(--bounciness)), 0, 1);
+}
+.dropdown-content .menu li a:active {
+  --morph-factor: 1;
+  transform: translateX(5px);
+  scale: calc(1.01 + var(--morph-factor) * var(--morph-factor) * 0.02) calc(1.05 - var(--morph-factor) * var(--morph-factor) * 0.03);
+  transition: transform 0.15s ease-out, color 0.3s ease, scale 0.15s ease-out;
 }
 @layer base {
   :where(:root),:root:has(input.theme-controller[value=light]:checked),[data-theme=light] {
