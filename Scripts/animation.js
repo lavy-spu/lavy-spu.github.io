@@ -18,19 +18,3 @@ document.addEventListener("DOMContentLoaded", () => {
 
     type();
 });
-
-// The modal
-document.addEventListener("DOMContentLoaded", () => {
-    const modal = document.getElementById("resumeModal");
-    const span = document.getElementsByClassName("close")[0];
-
-    span.onclick = function() {
-        modal.style.display = "none";
-    }
-
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
-});
