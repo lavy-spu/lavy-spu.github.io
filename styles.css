@@ -1442,3 +1442,317 @@ footer nav a {
     .dropdown-content .menu li a:hover img {
         background-color: #00FFD1 !important;
     }
+
+/* Floating Cat Companion */
+.floating-cat {
+    position: fixed;
+    bottom: 10px;
+    right: 20px;
+    z-index: 1001;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cat-icon {
+    width: 120px;
+    height: 120px;
+    /* Remove circular styling to preserve sprite shape */
+    background-color: transparent;
+    padding: 0;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+    transition: all 0.3s ease;
+    animation: catFloat 3s ease-in-out infinite;
+}
+
+.floating-cat:hover .cat-icon {
+    transform: scale(1.1) rotate(5deg);
+    filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.4));
+    /* Remove background color change to preserve transparency */
+}
+
+.cat-notification {
+    position: absolute;
+    top: -5px;
+    right: -2px;
+    color: #ac3232;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    animation: bounce 2s infinite;
+}
+
+/* Cat floating animation */
+@keyframes catFloat {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Chat Interface */
+.chat-interface {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 320px;
+    height: 450px;
+    background-color: #f0f6f0;
+    border: 3px solid #222323;
+    border-radius: 15px;
+    z-index: 1000;
+    font-family: "Lexend", sans-serif;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transform: translateY(100%);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.chat-interface.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.chat-header {
+    background-color: #222323;
+    color: #f0f6f0;
+    padding: 12px 15px;
+    border-radius: 12px 12px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "PressStart2P-Regular", sans-serif;
+    font-size: 0.8em;
+}
+
+.chat-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.chat-cat-icon {
+    width: 24px;
+    height: 24px;
+    /* Remove circular styling to preserve sprite shape */
+    background-color: transparent;
+    border-radius: 0;
+    padding: 0;
+    filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.3));
+}
+
+.close-chat-btn {
+    background: none;
+    border: none;
+    color: #f0f6f0;
+    font-size: 1.2em;
+    cursor: pointer;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s ease;
+}
+
+.close-chat-btn:hover {
+    color: #00FFD1;
+}
+
+.chat-content {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.chat-message {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.bot-message {
+    justify-content: flex-start;
+}
+
+.user-message {
+    justify-content: flex-end;
+}
+
+.message-bubble {
+    background-color: #222323;
+    color: #f0f6f0;
+    padding: 8px 12px;
+    border-radius: 15px;
+    max-width: 80%;
+    font-size: 0.9em;
+    line-height: 1.4;
+    word-wrap: break-word;
+}
+
+.user-message .message-bubble {
+    background-color: #00FFD1;
+    color: #222323;
+}
+
+.chat-options {
+    padding: 10px 15px;
+    border-top: 2px solid #222323;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+}
+
+.chat-option-btn {
+    background-color: #222323;
+    color: #f0f6f0;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: "Lexend", sans-serif;
+    font-size: 0.85em;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.chat-option-btn:hover {
+    background-color: #00FFD1;
+    color: #222323;
+    transform: translateX(5px);
+}
+
+.chat-option-btn:active {
+    transform: scale(0.98);
+}
+
+.message-bubble {
+    text-align: left;
+}
+
+.chat-category {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+}
+
+.category-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: center;
+}
+
+.command-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.command-btn {
+    flex: 1;
+    min-width: 0;
+    padding: 6px 10px;
+}
+
+/* Magic Word Input Styling */
+.magic-word-container {
+    display: flex;
+    gap: 8px;
+    padding: 10px 0;
+    align-items: center;
+    margin: 0px;
+}
+
+.magic-word-input {
+    flex: 1;
+    padding: 8px 12px;
+    border: 2px solid #222323;
+    border-radius: 20px;
+    font-family: "Lexend", sans-serif;
+    font-size: 0.85em;
+    outline: none;
+    background-color: #f0f6f0;
+    color: #222323;
+}
+
+.magic-word-input:focus {
+    border-color: #00FFD1;
+    box-shadow: 0 0 0 2px rgba(0, 255, 209, 0.2);
+}
+
+.magic-word-submit {
+    background-color: #222323;
+    color: #f0f6f0;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: "Lexend", sans-serif;
+    font-size: 0.85em;
+    transition: all 0.3s ease;
+}
+
+.magic-word-submit:hover {
+    background-color: #00FFD1;
+    color: #222323;
+    transform: scale(1.05);
+}
+
+.magic-word-options {
+    display: flex;
+    gap: 10px;
+    padding: 10px 15px;
+    justify-content: center;
+}
+
+.magic-option-btn {
+    background-color: #ac3232;
+    color: #f0f6f0;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: "Lexend", sans-serif;
+    font-size: 0.85em;
+    transition: all 0.3s ease;
+}
+
+.magic-option-btn:hover {
+    background-color: #00FFD1;
+    color: #222323;
+    transform: translateY(-2px);
+}
+
+/* Responsive chat interface */
+@media (max-width: 480px) {
+    .chat-interface {
+        width: calc(100vw - 40px);
+        right: 20px;
+        left: 20px;
+        bottom: 20px;
+        height: 400px;
+    }
+    
+    .floating-cat {
+        bottom: 15px;
+        right: 15px;
+    }
+    
+    .cat-icon {
+        width: 50px;
+        height: 50px;
+    }
+}

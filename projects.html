@@ -121,8 +121,52 @@
         </nav>
     </footer>
 
+    <!-- Floating Cat Companion -->
+    <div id="catCompanion" class="floating-cat">
+        <img src="./Content/cat-sleep.png" alt="Cat Companion" class="cat-icon">
+        <div class="cat-notification" id="catNotification">🔔</div>
+    </div>
+
+    <!-- Chat Interface -->
+    <div id="chatInterface" class="chat-interface hidden">
+        <div class="chat-header">
+            <div class="chat-title">
+                <img src="./Content/cat-sleep.png" alt="Cat" class="chat-cat-icon">
+                <span>Kitty</span>
+            </div>
+            <button id="closeChatBtn" class="close-chat-btn">×</button>
+        </div>
+        
+        <div class="chat-content" id="chatContent">
+            <div class="chat-message bot-message">
+                <div class="message-bubble">
+                    Hi! I'm Kitty - a virtual pet 🐱
+                </div>
+            </div>
+        </div>
+        
+        <div class="chat-options" id="chatOptions">
+            <div class="chat-category">
+                <div class="category-buttons">
+                    <button class="chat-option-btn" data-question="What are you up to?" data-answer="I'm just hanging out here, keeping you company while you explore Vy's portfolio! 😸">What are you up to?</button>
+                    <button class="chat-option-btn" data-question="Why is this cat here?" data-answer="I'm Vy's virtual pet! She thought visitors might enjoy having a friendly cat to chat with while browsing. I make the website more interactive and fun! Plus, I give great portfolio tours! 🎮">Why is this cat here?</button>
+                    <button class="chat-option-btn" data-question="Tell me about Vy" data-answer="Vy is such a talented developer! She's passionate about front-end development, loves creating beautiful user interfaces, and has a love for pixel art. You should definitely check out her projects! ⭐">Tell me about Vy</button>
+                </div>
+            </div>
+            
+            <div class="chat-category">
+                <div class="command-buttons">
+                    <button class="chat-option-btn command-btn" data-question="Talk" data-answer="Mraow!">Talk</button>
+                    <button class="chat-option-btn command-btn" data-question="Feed" data-answer="Tuna 🐟?!! *nom nom nom* Mmm, yummy! Thank you so much ✨">Feed</button>
+                    <button class="chat-option-btn command-btn" data-question="Fun Secret" data-answer="Say the magic word to reveal the secret 😼">Fun Secret</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script type="module" src="./Scripts/GetProjects.js"></script>
     <script type="module" src="./Scripts/radioNavigation.js"></script>
     <script type="module" src="./Scripts/dynamicTextCoverage.js"></script>
+    <script type="module" src="./Scripts/catCompanion.js"></script>
 </body>
 </html>
