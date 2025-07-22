@@ -325,7 +325,7 @@ class CatCompanion {
                 // Show notification briefly
                 if (this.catNotification.style.display === 'none') {
                     this.catNotification.style.display = 'flex';
-                    this.catNotification.textContent = '💭';
+                    this.catNotification.textContent = '🔔';
                     setTimeout(() => {
                         this.catNotification.style.display = 'none';
                     }, 2000);

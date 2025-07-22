@@ -1739,20 +1739,74 @@ footer nav a {
 /* Responsive chat interface */
 @media (max-width: 480px) {
     .chat-interface {
-        width: calc(100vw - 40px);
-        right: 20px;
-        left: 20px;
-        bottom: 20px;
-        height: 400px;
+        width: calc(100vw - 20px);
+        right: 10px;
+        left: 10px;
+        bottom: 15px;
+        height: 420px;
     }
     
     .floating-cat {
-        bottom: 15px;
-        right: 15px;
+        bottom: 20px;
+        right: 20px;
+        transform: none; /* Remove any transforms that might hide it */
     }
     
     .cat-icon {
-        width: 50px;
-        height: 50px;
+        width: 80px;
+        height: 80px;
+        filter: drop-shadow(3px 3px 6px rgba(0, 0, 0, 0.4));
+    }
+    
+    .cat-notification {
+        font-size: 20px;
+        top: -8px;
+        right: -5px;
+    }
+    
+    /* Make chat header more mobile friendly */
+    .chat-header {
+        padding: 15px;
+        font-size: 0.9em;
+    }
+    
+    .chat-cat-icon {
+        width: 28px;
+        height: 28px;
+    }
+    
+    /* Improve button sizing on mobile */
+    .chat-option-btn {
+        padding: 12px 16px;
+        font-size: 0.9em;
+    }
+    
+    .command-btn {
+        padding: 10px 14px;
+        font-size: 0.85em;
+    }
+}
+
+@media (max-width: 768px) and (min-width: 481px) {
+    .floating-cat {
+        bottom: 18px;
+        right: 18px;
+    }
+    
+    .cat-icon {
+        width: 90px;
+        height: 90px;
+        filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.3));
+    }
+    
+    .cat-notification {
+        font-size: 19px;
+        top: -6px;
+        right: -3px;
+    }
+    
+    .chat-interface {
+        width: 340px;
+        height: 460px;
     }
 }
