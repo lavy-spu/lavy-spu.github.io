@@ -4,57 +4,179 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Experience - Vy La</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./output.css">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="logo">
-                <a href="index.html#home"><h1>Vy La</h1></a>
-            </div>
-            <nav class="menu-list">
-                <ul>
-                    <a href="index.html#about"><li>About</li></a>
-                    <a href="experience.html"><li>Experience</li></a>
-                    <a href="projects.html"><li>Projects</li></a>
+    <header class="navbar bg-base-100 shadow-sm">
+        <div class="navbar-start">
+            <!-- Mobile menu dropdown -->
+            <div class="dropdown">
+                <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+                    </svg>
+                </div>
+                <ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="experience.html" class="active">Experience</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <!-- Mobile social icons -->
+                    <li class="border-t border-gray-300 mt-2 pt-2">
+                        <div class="flex justify-center gap-4">
+                            <a href="mailto:vyla.main@gmail.com" target="_blank">
+                                <img src="./Icons/email-close.png" alt="Email" class="w-6 h-6">
+                            </a>
+                            <a href="https://github.com/lavy-spu" target="_blank">
+                                <img src="./Icons/github.png" alt="GitHub" class="w-6 h-6">
+                            </a>
+                            <a href="https://www.linkedin.com/in/vy-la/" target="_blank">
+                                <img src="./Icons/linkedin.png" alt="LinkedIn" class="w-6 h-6">
+                            </a>
+                        </div>
+                    </li>
                 </ul>
-            </nav>
+            </div>
+            <!-- Logo -->
+            <div class="logo pl-4">
+                <a href="index.html" class="flex items-center justify-center h-full">
+                    <img src="./Content/cat-logo.png" alt="Vy La" class="w-14 h-14">
+                </a>
+            </div>
+        </div>
+        
+        <!-- Desktop menu -->
+        <div class="navbar-center hidden lg:flex">
+            <div class="radio-group">
+                <input type="radio" name="nav" id="nav-about">
+                <label for="nav-about">About</label>
+                <input type="radio" name="nav" id="nav-experience" checked>
+                <label for="nav-experience">Experience</label>
+                <input type="radio" name="nav" id="nav-projects">
+                <label for="nav-projects">Projects</label>
+                <div class="selection-indicator-wrapper">
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Social icons for desktop -->
+        <div class="navbar-end">
             <div class="icons">
-                <a href="mailto:vyla.main@gmail.com" target="_blank"><img src="./Icons/email-close.png" alt="Email"></a>
-                <a href="https://github.com/lavy-spu" target="_blank"><img src="./Icons/github.png" alt="GitHub"></a>
-                <a href="https://www.linkedin.com/in/vy-la/" target="_blank"><img src="./Icons/linkedin.png" alt="LinkedIn"></a>
+                <a href="mailto:vyla.main@gmail.com" target="_blank">
+                    <img src="./Icons/email-close.png" alt="Email">
+                </a>
+                <a href="https://github.com/lavy-spu" target="_blank">
+                    <img src="./Icons/github.png" alt="GitHub">
+                </a>
+                <a href="https://www.linkedin.com/in/vy-la/" target="_blank">
+                    <img src="./Icons/linkedin.png" alt="LinkedIn">
+                </a>
             </div>
         </div>
     </header>
 
-    <!-- Experience section -->
-    <section id="experience" class="experience-section">
-        <h1>Experience</h1>
-        <div class="experience-container">
-            <aside class="experience-sidebar" id="company-list">
-                <!-- Companies will be dynamically populated -->
-            </aside>
-            <div class="experience-details">
-                <h2 id="exp-title" class="job-title"></h2>
-                <p id="exp-company" class="company-name"></p>
-                <p id="exp-date"></p>
-                <ul id="exp-detail-list"></ul>
+    <main class="main-content">
+        <!-- Experience section -->
+        <section id="experience" class="experience-section">
+            <h1>Experience</h1>
+            <div class="experience-container">
+                <aside class="experience-sidebar" id="company-list">
+                    <!-- Companies will be dynamically populated -->
+                </aside>
+                <div class="experience-details">
+                    <h2 id="exp-title" class="job-title"></h2>
+                    <p id="exp-company" class="company-name"></p>
+                    <p id="exp-date"></p>
+                    <ul id="exp-detail-list"></ul>
+                </div>
             </div>
-        </div>
-        <button id="pfResume" class="resume-button">Open Resume</button>
-        <!-- Resume Modal -->
-        <div id="resumeModal" class="modal">
-            <div class="modal-content">
-                <span class="close-button" id="closeModal">&times;</span>
-                <iframe id="resumeFrame" class="resume-frame" src="" frameborder="0"></iframe>
+            <button id="pfResume" class="resume-button">Open Resume</button>
+            <!-- Resume Modal -->
+            <div id="resumeModal" class="modal">
+                <div class="modal-content">
+                    <span class="close-button" id="closeModal">&times;</span>
+                    <iframe id="resumeFrame" class="resume-frame" src="" frameborder="0"></iframe>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <footer>
-        <p>Built and designed by Vy La.<br>All rights reserved. ©</p>
+    <footer class="footer footer-horizontal footer-center bg-primary text-primary-content p-10">
+        <aside>
+            <img 
+                src="./Content/cat-logo.png" 
+                alt="Pixel Cat Logo" 
+                width="50" 
+                height="50"
+                class="inline-block">
+            <p class="font-bold">
+                Vy La
+                <br />
+                Build and design with love
+            </p>
+            <p>Copyright &copy; 2025 - All right reserved</p>
+        </aside>
+        <nav>
+            <div class="grid grid-flow-col gap-4">
+                <a href="mailto:vyla.main@gmail.com" target="_blank">
+                    <img src="./Icons/email-close.png" alt="Email" class="w-6 h-6">
+                </a>
+                <a href="https://github.com/lavy-spu" target="_blank">
+                    <img src="./Icons/github.png" alt="GitHub" class="w-6 h-6">
+                </a>
+                <a href="https://www.linkedin.com/in/vy-la/" target="_blank">
+                    <img src="./Icons/linkedin.png" alt="LinkedIn" class="w-6 h-6">
+                </a>
+            </div>
+        </nav>
     </footer>
 
+    <!-- Floating Cat Companion -->
+    <div id="catCompanion" class="floating-cat">
+        <img src="./Content/cat-sleep.png" alt="Cat Companion" class="cat-icon">
+        <div class="cat-notification" id="catNotification">🔔</div>
+    </div>
+
+    <!-- Chat Interface -->
+    <div id="chatInterface" class="chat-interface hidden">
+        <div class="chat-header">
+            <div class="chat-title">
+                <img src="./Content/cat-sleep.png" alt="Cat" class="chat-cat-icon">
+                <span>Kitty</span>
+            </div>
+            <button id="closeChatBtn" class="close-chat-btn">×</button>
+        </div>
+        
+        <div class="chat-content" id="chatContent">
+            <div class="chat-message bot-message">
+                <div class="message-bubble">
+                    Hi! I'm Kitty - a virtual pet 🐱
+                </div>
+            </div>
+        </div>
+        
+        <div class="chat-options" id="chatOptions">
+            <div class="chat-category">
+                <div class="category-buttons">
+                    <button class="chat-option-btn" data-question="What are you up to?" data-answer="I'm just hanging out here, keeping you company while you explore Vy's portfolio! 😸">What are you up to?</button>
+                    <button class="chat-option-btn" data-question="Why is this cat here?" data-answer="I'm Vy's virtual pet! She thought visitors might enjoy having a friendly cat to chat with while browsing. I make the website more interactive and fun! Plus, I give great portfolio tours! 🎮">Why is this cat here?</button>
+                    <button class="chat-option-btn" data-question="Tell me about Vy" data-answer="Vy is such a talented developer! She's passionate about front-end development, loves creating beautiful user interfaces, and has a love for pixel art. You should definitely check out her projects! ⭐">Tell me about Vy</button>
+                </div>
+            </div>
+            
+            <div class="chat-category">
+                <div class="command-buttons">
+                    <button class="chat-option-btn command-btn" data-question="Talk" data-answer="Mraow!">Talk</button>
+                    <button class="chat-option-btn command-btn" data-question="Feed" data-answer="Tuna 🐟?!! *nom nom nom* Mmm, yummy! Thank you so much ✨">Feed</button>
+                    <button class="chat-option-btn command-btn" data-question="Fun Secret" data-answer="Say the magic word to reveal the secret 😼">Fun Secret</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script type="module" src="./Scripts/GetExperience.js"></script>
+    <script type="module" src="./Scripts/radioNavigation.js"></script>
+    <script type="module" src="./Scripts/dynamicTextCoverage.js"></script>
+    <script type="module" src="./Scripts/catCompanion.js"></script>
 </body>
 </html>
